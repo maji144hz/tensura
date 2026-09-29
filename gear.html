@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: เกียร์ / สูตรผสมโลหะ / โต๊ะตีเหล็ก">
+<title>เกียร์ / สูตรผสมโลหะ — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png"></head>
+<body>
+<header><h1>Gear: ผสมโลหะ + ตีเกียร์</h1><p>สูตรจริงจาก <code>tensura data/recipe/mixing + smithing</code> หน่วยหลอม 1 ingot = 9 หน่วย</p></header>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a class="active" href="gear.html">เกียร์</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<main>
+<h2>ผสมโลหะใน Kiln (ต่อ 1 ingot)</h2>
+<table><tr><th>โลหะ</th><th>สูตร (หน่วยหลอม)</th><th>เตาที่ใช้</th></tr>
+<tr><td><img class="icon" src="assets/low_magisteel_ingot.png" alt="">Low Magisteel</td><td>Magisteel 4 + Iron 8</td><td>Kiln ธรรมดา (จุ 144 = 16 ingot)</td></tr>
+<tr><td><img class="icon" src="assets/high_magisteel_ingot.png" alt="">High Magisteel</td><td>Magisteel 16 + Iron 5</td><td>Kiln ธรรมดา</td></tr>
+<tr><td><img class="icon" src="assets/pure_magisteel_ingot.png" alt="">Pure Magisteel</td><td>Magisteel 36 (= Magisteel 4 ingot) ล้วน</td><td>Kiln ธรรมดา (block ใช้ 324)</td></tr>
+<tr><td><img class="icon" src="assets/mithril_ingot.png" alt="">Mithril</td><td>Magisteel 20 + <img class="icon" src="assets/silver_ingot.png" alt="">Silver 4</td><td>Mithril Kiln (จุ 288)</td></tr>
+<tr><td><img class="icon" src="assets/orichalcum_ingot.png" alt="">Orichalcum</td><td>Magisteel 20 + Gold 4</td><td>Orichalcum Kiln (จุ 576)</td></tr>
+<tr><td><img class="icon" src="assets/silver_ingot.png" alt="">Silver</td><td>Silver 9 ตรงๆ</td><td>Kiln ธรรมดา</td></tr></table>
+<p>ค่าไฟ <code>fireCoreCost=100</code> ชาร์จ <code>2400 tick</code> (<code>block_config.toml:38-44</code>) • เกียร์เก่าหลอมคืนได้บางส่วน (<code>kiln_melting</code> เช่น ขวาน High ได้ Magisteel 2 + Iron คืน <code>melting/high_magisteel_axe.json:75 tick</code>)</p>
+<h2>ตีเกียร์ที่ Smithing Bench (+ schematic ตรง tier)</h2>
+<table><tr><th>ชิ้น</th><th>สูตร (ทุกระดับเหมือนกัน เปลี่ยนแค่ ingot)</th></tr>
+<tr><td>ดาบ</td><td>ingot โลหะ 2 + ทอง 1 + ไม้ 1 (<code>smithing/low_magisteel_sword.json</code>)</td></tr>
+<tr><td>อกเกราะ</td><td>ingot 8 + ทอง 4 + หนังมอน B 2 (<code>smithing/mithril_chestplate.json</code>)</td></tr></table>
+<p>มีดาบ/คาตานะ/โอ LONG/SHORT/โอดาชิ/เคียว/ขวาน/พลั่ว/จอบ/เกราะครบเซ็ตถึง Mithril • schematic ได้จากเควส <code>2C04AF:770,1897,1936</code> + <code>2BBC87:958</code> • เกียร์วานิลลา (iron/diamond/netherite) ให้ EP โบนัสต่างกัน (<code>kubejs/data/tensura/gear_existence/*.json</code> 60 ไฟล์)</p>
+<div class="card"><h2>ลำดับเกียร์แนะนำ</h2><p>Iron → Low (ผสมถูกสุด) → High → Pure (ฟาร์ม Colossus) → Mithril (แกร่งกว่า Netherite) → Orichalcum/Adamantite/Hihiirokane ท้ายเกม — ผูกกับเควสเนื้อเรื่อง <code>2C04AF</code></p></div>
+</main>
+<footer><nav class="footer-nav" aria-label="ลิงก์ย่อ"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิล</a> • <a href="races.html">เผ่า</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
+</body>
+</html>
