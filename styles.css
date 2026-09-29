@@ -82,3 +82,36 @@ footer { color: var(--muted); text-align: center; padding: 30px; }
 a { color: var(--link); }
 .icon { width: 32px; height: 32px; image-rendering: pixelated; vertical-align: middle; margin-right: 6px; }
 .icon-lg { width: 48px; height: 48px; image-rendering: pixelated; vertical-align: middle; }
+.hero {
+  background: linear-gradient(135deg, #1b2a3a 0%, #2a1b3a 60%, #3a2a1b 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  margin: 20px 0;
+}
+.hero h2 { color: #fff; font-size: 30px; margin: 0 0 8px; }
+.hero p { color: var(--muted); margin: 0 0 16px; }
+.hero .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.badge {
+  background: rgba(0,0,0,.4);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 14px;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.menu-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .12s, border-color .12s;
+}
+.menu-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.menu-card h3 { margin: 8px 0 4px; color: var(--accent); }
+.menu-card p { margin: 0; color: var(--muted); font-size: 14px; }
