@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: อาหาร / สูตร Gourmet">
+<title>อาหาร / Gourmet — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png">
+<style>
+.searchbar { display:flex; gap:8px; margin:16px 0; }
+.searchbar input { flex:1; padding:10px 14px; font-size:16px; background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:10px; }
+#count { color:var(--muted); margin:8px 0; }
+</style>
+</head>
+<body>
+<header><h1>อาหาร / Gourmet: 85 เมนู</h1><p>ค่า EP/MP/AP จริงจาก <code>config/tno/*.json</code> • สาย Chef/Cook/Gourmet/Gourmand ต้องทำ</p></header>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="gear.html">เกียร์</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a class="active" href="cooking.html">อาหาร</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<main>
+<div class="card"><h2>ค่าอาหารคืออะไร</h2><p><b>EP</b> = โบนัส max EP ชั่วคราว • <b>MP/AP</b> = % ฟื้น Magicule/Aura • กินให้อิ่มเต็มได้โล่ Satiated Shield กัน 64 ดาเมจ • อุปกรณ์: เตา/หม้อ/เขียง/โม่/ซึ้ง + เตา TNO (เควส <code>1D140D9D</code>)</p></div>
+<h2>ท็อป 10 EP สูงสุด</h2>
+<table><tr><th>เมนู</th><th>EP</th><th>MP</th><th>AP</th></tr><tr><td>Tensura Tno Monster Meat Platter</td><td>10000</td><td>10%</td><td>10%</td></tr><tr><td>Shengjian Mantou</td><td>4000</td><td>5%</td><td>5%</td></tr><tr><td>Tensura Tno Storm Daemon Hipokute Soup</td><td>4000</td><td>5%</td><td>5%</td></tr><tr><td>Fried Spring Roll</td><td>3000</td><td>10%</td><td>5%</td></tr><tr><td>Golden Salad</td><td>3000</td><td>10%</td><td>5%</td></tr><tr><td>Spicy Blood Stew</td><td>3000</td><td>5%</td><td>10%</td></tr><tr><td>Hui Noodle</td><td>2500</td><td>2%</td><td>2%</td></tr><tr><td>Beef Noodle</td><td>2000</td><td>2%</td><td>2%</td></tr><tr><td>Buddha Jumps Over The Wall</td><td>2000</td><td>10%</td><td>10%</td></tr><tr><td>Dough Drop Soup</td><td>2000</td><td>1%</td><td>1%</td></tr></table>
+<h2>ค้นหาทุกเมนู</h2>
+<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาเมนู... เช่น soup, baozi, charybdis"></div>
+<div id="count"></div>
+<table><tr><th>เมนู</th><th>EP</th><th>MP</th><th>AP</th></tr><tbody id="list"></tbody></table>
+</main>
+<footer><nav class="footer-nav" aria-label="ลิงก์ย่อ"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
+<script>
+const DATA = [
+{n:"Bamboo Tube Rice",e:"500",m:"-",a:"-"},
+{n:"Baozi",e:"700",m:"1%",a:"1%"},
+{n:"Beef Meatball Soup",e:"1200",m:"1%",a:"2%"},
+{n:"Beef Noodle",e:"2000",m:"2%",a:"2%"},
+{n:"Blaze Lamb Chop",e:"1300",m:"1%",a:"1%"},
+{n:"Borscht",e:"1500",m:"1%",a:"1%"},
+{n:"Braised Beef",e:"888",m:"-",a:"-"},
+{n:"Braised Beef Rice Bowl",e:"888",m:"1%",a:"1%"},
+{n:"Braised Beef With Potatoes",e:"1000",m:"1%",a:"1%"},
+{n:"Braised Fish",e:"500",m:"-",a:"-"},
+{n:"Braised Fish Rice Bowl",e:"500",m:"-",a:"-"},
+{n:"Braised Pork Ribs",e:"600",m:"-",a:"-"},
+{n:"Brown Mushroom Pot Soup",e:"700",m:"-",a:"-"},
+{n:"Buddha Jumps Over The Wall",e:"2000",m:"10%",a:"10%"},
+{n:"Candied Potato",e:"700",m:"-",a:"-"},
+{n:"Chicken And Mushroom Stew",e:"1000",m:"1%",a:"1%"},
+{n:"Chorus Fried Egg",e:"1500",m:"1%",a:"2%"},
+{n:"Cold Roasted Meat",e:"300",m:"-",a:"-"},
+{n:"Cold Style Sashimi",e:"1600",m:"3%",a:"1%"},
+{n:"Cooked Meatball",e:"180",m:"-",a:"-"},
+{n:"Country Style Mixed Vegetables",e:"30",m:"10%",a:"10%"},
+{n:"Crimson Fungus Pot Soup",e:"1000",m:"5%",a:"5%"},
+{n:"Crystal Lamb Chop",e:"1300",m:"1%",a:"1%"},
+{n:"Delicious Egg Fried Rice",e:"900",m:"2%",a:"2%"},
+{n:"Desert Style Sashimi",e:"1600",m:"3%",a:"1%"},
+{n:"Dongpo Pork",e:"1000",m:"-",a:"5%"},
+{n:"Donkey Burger",e:"1500",m:"1%",a:"1%"},
+{n:"Donkey Soup",e:"1000",m:"1%",a:"-"},
+{n:"Dough Drop Soup",e:"2000",m:"1%",a:"1%"},
+{n:"Dumpling",e:"190",m:"1%",a:"1%"},
+{n:"Egg Fried Rice",e:"600",m:"2%",a:"1%"},
+{n:"End Style Sashimi",e:"1600",m:"3%",a:"1%"},
+{n:"Fearsome Thick Soup",e:"1000",m:"1%",a:"1%"},
+{n:"Fish Flavored Shredded Pork",e:"1000",m:"1%",a:"1%"},
+{n:"Fish Flavored Shredded Pork Rice Bowl",e:"1200",m:"1%",a:"2%"},
+{n:"Fondant Pie",e:"1000",m:"-",a:"2%"},
+{n:"Fondant Spider Eye",e:"1000",m:"-",a:"2%"},
+{n:"Four Joy Meatball Soup",e:"2000",m:"1%",a:"1%"},
+{n:"Fried Caterpillar",e:"1400",m:"-",a:"-"},
+{n:"Fried Spring Roll",e:"3000",m:"10%",a:"5%"},
+{n:"Frost Lamb Chop",e:"1300",m:"1%",a:"1%"},
+{n:"Fruit Platter",e:"300",m:"-",a:"-"},
+{n:"Golden Salad",e:"3000",m:"10%",a:"5%"},
+{n:"Hui Noodle",e:"2500",m:"2%",a:"2%"},
+{n:"Lamb And Radish Soup",e:"1200",m:"1%",a:"1%"},
+{n:"Meat Pie",e:"150",m:"1%",a:"1%"},
+{n:"Nether Style Sashimi",e:"1600",m:"3%",a:"1%"},
+{n:"Numbing Spicy Chicken",e:"1400",m:"1%",a:"1%"},
+{n:"Oil Splashed Fish",e:"1000",m:"-",a:"1000"},
+{n:"Pan Seared Knight Steak",e:"900",m:"1%",a:"5%"},
+{n:"Pork Bone Soup",e:"1000",m:"1%",a:"1%"},
+{n:"Pufferfish Soup",e:"1000",m:"1%",a:"1%"},
+{n:"Qingtuan",e:"100",m:"1%",a:"-"},
+{n:"Red Mushroom Pot Soup",e:"700",m:"-",a:"-"},
+{n:"Scramble Egg With Tomatoes",e:"300",m:"1%",a:"1%"},
+{n:"Scramble Egg With Tomatoes Rice Bowl",e:"500",m:"1%",a:"1%"},
+{n:"Seafood Miso Soup",e:"1000",m:"1%",a:"1%"},
+{n:"Shengjian Mantou",e:"4000",m:"5%",a:"5%"},
+{n:"Spicy Blood Stew",e:"3000",m:"5%",a:"10%"},
+{n:"Spicy Chicken",e:"1500",m:"1%",a:"2%"},
+{n:"Spicy Chicken Rice Bowl",e:"1100",m:"1%",a:"1%"},
+{n:"Spicy Rabbit Head",e:"1700",m:"1%",a:"-"},
+{n:"Stargazy Pie",e:"900",m:"3%",a:"1%"},
+{n:"Sticky Candy",e:"100",m:"-",a:"1%"},
+{n:"Sticky Rice Cake",e:"555",m:"-",a:"5%"},
+{n:"Stir Fried Beef Offal",e:"1000",m:"-",a:"-"},
+{n:"Stir Fried Beef Offal Rice Bowl",e:"1400",m:"1%",a:"1%"},
+{n:"Stir Fried Pork With Peppers",e:"555",m:"-",a:"-"},
+{n:"Stir Fried Pork With Peppers Rice Bowl",e:"555",m:"1%",a:"1%"},
+{n:"Stuffed Tiger Skin Pepper",e:"1700",m:"1%",a:"-"},
+{n:"Suspicious Stir Fry Rice Bowl",e:"1",m:"-",a:"-"},
+{n:"Sweet And Sour Ender Pearls",e:"100",m:"3%",a:"3%"},
+{n:"Sweet And Sour Pork",e:"888",m:"-",a:"-"},
+{n:"Sweet And Sour Pork Rice Bowl",e:"888",m:"1%",a:"1%"},
+{n:"Tomato Beef Brisket Soup",e:"1200",m:"1%",a:"1%"},
+{n:"Tundra Style Sashimi",e:"1600",m:"3%",a:"1%"},
+{n:"Udon Noodle",e:"2000",m:"2%",a:"2%"},
+{n:"Warped Fungus Pot Soup",e:"1000",m:"5%",a:"5%"},
+{n:"Wild Mushroom Rabbit Soup",e:"1000",m:"1%",a:"1%"},
+{n:"Yakitori",e:"1300",m:"1%",a:"1%"},
+{n:"Zongzi",e:"300",m:"1%",a:"-"},
+{n:"Tensura Cooked Charybdis Meat",e:"500",m:"2%",a:"1%"},
+{n:"Tensura Dubious Food",e:"666",m:"5%",a:"5%"},
+{n:"Tensura Tno Monster Meat Platter",e:"10000",m:"10%",a:"10%"},
+{n:"Tensura Tno Storm Daemon Hipokute Soup",e:"4000",m:"5%",a:"5%"},
+];
+const inp = document.getElementById("q"), list = document.getElementById("list"), count = document.getElementById("count");
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function render() {
+  const q = inp.value.toLowerCase();
+  const r = DATA.filter(x => !q || x.n.toLowerCase().includes(q)).slice(0, 200);
+  count.textContent = "เจอ " + r.length + " เมนู";
+  list.innerHTML = r.map(x => "<tr><td>" + esc(x.n) + "</td><td>" + esc(x.e) + "</td><td>" + esc(x.m) + "</td><td>" + esc(x.a) + "</td></tr>").join("");
+}
+inp.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
