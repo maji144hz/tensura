@@ -4,36 +4,56 @@
 <meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: ม็อบ / เรทเกิด"><meta property="og:type" content="website"><meta property="og:title" content="ม็อบ / เรทเกิด — Tensura Guide"><meta property="og:description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: ม็อบ / เรทเกิด"><meta name="theme-color" content="#0c1726">
 <title>ม็อบ / เรทเกิด — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png"></head>
 <body>
-<header><h1>ม็อบ / เรทเกิด / ถิ่น</h1><p>เรท 1 in X: ตัวเลข X ยิ่งน้อย ยิ่งเจอบ่อย</p></header>
+<header><h1>ม็อบ / เรทเกิด / ถิ่น</h1><p>ตัวเลขยิ่งน้อยยิ่งเจอบ่อย • ดรอปของดู<a href="drops.html">หน้าดรอป</a></p></header>
 <nav aria-label="เมนูหลัก"><div class="nav-main"><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="races.html">เผ่า 33</a><a class="active" href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="quests.html">เควส</a></div><details class="nav-more"><summary>เพิ่มเติม</summary><div class="nav-panel"><div><h4>ข้อมูลเกม</h4><a href="abilities.html">Abilities</a><a href="blocks.html">บล็อก</a><a href="items.html">ไอเทม / อีโว</a><a href="drops.html">ม็อบดรอป</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ / ประตู</a><a href="mechanics.html">Mechanics</a><a href="systems.html">ระบบสำคัญ</a></div><div><h4>ของใช้ / ของกิน</h4><a href="gear.html">เกียร์ / โลหะ</a><a href="weapons.html">อาวุธ / เกราะ</a><a href="cooking.html">อาหาร</a></div><div><h4>ช่วยเหลือ</h4><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="changelog.html">อัปเดตเว็บ</a></div></div></details></nav>
 <main>
-<h2>เรทพื้นฐาน [กลางวัน, กลางคืน] <code>spawn_rate_config.toml:39-82</code></h2>
-<table><tr><th>ม็อบ</th><th>เรท</th></tr>
-<tr><td>slime</td><td>[3, 2]</td></tr>
-<tr><td>direwolf</td><td>[2, 2]</td></tr>
-<tr><td>orc</td><td>[4, 3]</td></tr>
-<tr><td>barghest / hover / leech</td><td>[7, 5]</td></tr>
-<tr><td>giantBat (กลางคืนเท่านั้น)</td><td>[0, 4]</td></tr>
-<tr><td>megalodon</td><td>[30, 15]</td></tr>
-<tr><td>armorsaurus / cattledeer / spearToro</td><td>[4,2] / [6,4] / [6,6]</td></tr>
-<tr><td>blackSpider / bladeTiger / ant / bee / moth</td><td>[8,5] / [8,6] / [8,6] / [11,8] / [12,9]</td></tr>
-<tr><td>unicorn / pegasus</td><td>[24,12] ดอกไม้/ภูเขา (<code>incontrol/spawner.json</code>)</td></tr>
-<tr><td>otherworlder</td><td>[60,30]</td></tr>
-<tr><td>lesser / greater / arch Daemon</td><td>[40,20] / [60,30] / [80,40]</td></tr>
+<h2>อัตราการเกิด (แยกกลางวัน / กลางคืน)</h2>
+<table><tr><th></th><th>ม็อบ</th><th>กลางวัน</th><th>กลางคืน</th><th>เจอง่ายแค่ไหน</th></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/slime.png" alt=""></td><td>สไลม์ <span style="color:var(--muted)">slime</span></td><td>1 ใน 3</td><td>1 ใน 2</td><td>เยอะมาก</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/direwolf.png" alt=""></td><td>ไดร์วูล์ฟ <span style="color:var(--muted)">direwolf</span></td><td>1 ใน 2</td><td>1 ใน 2</td><td>เยอะมาก</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/orc.png" alt=""></td><td>ออร์ค <span style="color:var(--muted)">orc</span></td><td>1 ใน 4</td><td>1 ใน 3</td><td>เยอะ</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/armorsaurus.png" alt=""></td><td>อาร์เมอร์ซอรัส <span style="color:var(--muted)">armorsaurus</span></td><td>1 ใน 4</td><td>1 ใน 2</td><td>เยอะ</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/cattledeer.png" alt=""></td><td>แคทเทิลเดียร์ <span style="color:var(--muted)">cattledeer</span></td><td>1 ใน 6</td><td>1 ใน 4</td><td>เยอะ</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/spear_toro.png" alt=""></td><td>สเปียร์โทโร่ <span style="color:var(--muted)">spearToro</span></td><td>1 ใน 6</td><td>1 ใน 6</td><td>เยอะ</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/barghest.png" alt=""></td><td>บาร์เกสต์ <span style="color:var(--muted)">barghest</span></td><td>1 ใน 7</td><td>1 ใน 5</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/hover_lizard.png" alt=""></td><td>กิ้งก่าโฉบ <span style="color:var(--muted)">hover</span></td><td>1 ใน 7</td><td>1 ใน 5</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/leech_lizard.png" alt=""></td><td>กิ้งก่าปลิง <span style="color:var(--muted)">leech</span></td><td>1 ใน 7</td><td>1 ใน 5</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/black_spider.png" alt=""></td><td>แมงมุมดำ <span style="color:var(--muted)">blackSpider</span></td><td>1 ใน 8</td><td>1 ใน 5</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/blade_tiger.png" alt=""></td><td>เสือดาบ <span style="color:var(--muted)">bladeTiger</span></td><td>1 ใน 8</td><td>1 ใน 6</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/giant_ant.png" alt=""></td><td>มดยักษ์ <span style="color:var(--muted)">ant</span></td><td>1 ใน 8</td><td>1 ใน 6</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/army_wasp.png" alt=""></td><td>ตัวต่อทหาร <span style="color:var(--muted)">bee</span></td><td>1 ใน 11</td><td>1 ใน 8</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/hell_moth.png" alt=""></td><td>ผีเสื้อนรก <span style="color:var(--muted)">moth</span></td><td>1 ใน 12</td><td>1 ใน 9</td><td>ปานกลาง</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/giant_bat.png" alt=""></td><td>ค้างคาวยักษ์ <span style="color:var(--muted)">giantBat</span></td><td>ไม่เกิด</td><td>1 ใน 4</td><td>กลางคืนเท่านั้น</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/unicorn.png" alt=""></td><td>ยูนิคอร์น <span style="color:var(--muted)">unicorn</span></td><td>1 ใน 24</td><td>1 ใน 12</td><td>น้อย (ดอกไม้/ภูเขา)</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/pegasus.png" alt=""></td><td>เพกาคอร์น <span style="color:var(--muted)">pegasus</span></td><td>1 ใน 24</td><td>1 ใน 12</td><td>น้อย (ภูเขา)</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/megalodon.png" alt=""></td><td>เมกาโลดอน <span style="color:var(--muted)">megalodon</span></td><td>1 ใน 30</td><td>1 ใน 15</td><td>น้อย</td></tr>
+<tr><td><img class="icon" src="assets/daemon_essence.png" alt=""></td><td>เลสเซอร์เดมอน <span style="color:var(--muted)">lesserDaemon</span></td><td>1 ใน 40</td><td>1 ใน 20</td><td>หายาก</td></tr>
+<tr><td><img class="icon" src="assets/daemon_essence.png" alt=""></td><td>เกรทเตอร์เดมอน <span style="color:var(--muted)">greaterDaemon</span></td><td>1 ใน 60</td><td>1 ใน 30</td><td>หายากมาก</td></tr>
+<tr><td><img class="icon" src="assets/daemon_essence.png" alt=""></td><td>อาร์ชเดมอน <span style="color:var(--muted)">archDaemon</span></td><td>1 ใน 80</td><td>1 ใน 40</td><td>หายากมาก</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/otherworlder.png" alt=""></td><td>ผู้ต่างโลก <span style="color:var(--muted)">otherworlder</span></td><td>1 ใน 60</td><td>1 ใน 30</td><td>หายากมาก</td></tr>
 </table>
-<p><b>ตัวแรร์ (<code>spawn_rate_config:1-35</code>):</b> supermassive 1/1000 • metal 1/500 • orcLord 1/900 • orcRoyal 1/100 • alphaWolf 1/10 • starBirthmark 1/8 • gehenna 1/20 • shizu 1/30 • hinata 1/69 • greaterSpirit 1/600</p>
+<h2>ตัวแรร์ (เกิดแทนตัวปกติตามโอกาส)</h2>
+<table><tr><th></th><th>ตัวแรร์</th><th>โอกาส</th><th>หมายเหตุ</th></tr>
+<tr><td><img class="icon" src="assets/slime_in_a_bucket.png" alt=""></td><td>สไลม์มวลมหาศาล <span style="color:var(--muted)">supermassive</span></td><td>1/1000 ของสไลม์</td><td>ต้านธนู ดรอป core ชัวร์</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/metal_slime.png" alt=""></td><td>เมทัลสไลม์ <span style="color:var(--muted)">metal</span></td><td>1/500 ของสไลม์</td><td>ดรอป shard 5-8</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/orc_lord.png" alt=""></td><td>ออร์คลอร์ด <span style="color:var(--muted)">orcLord</span></td><td>1/900 ของออร์ค</td><td>ดรอป royal blood 50%</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/orc_royal.png" alt=""></td><td>ออร์ครอยัล <span style="color:var(--muted)">orcRoyal</span></td><td>1/100</td><td>ฟื้นเลือดเองได้</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/direwolf.png" alt=""></td><td>อัลฟ่าวูล์ฟ <span style="color:var(--muted)">alphaWolf</span></td><td>1/10 ของไดร์วูล์ฟ</td><td>จ่าฝูง</td></tr>
+<tr><td>—</td><td>ชิซุ <span style="color:var(--muted)">shizu</span> / ฮินาตะ <span style="color:var(--muted)">hinata</span> / เกเฮนนา / ดาวสตาร์ / เกรทเตอร์สปิริต</td><td>1/30 / 1/69 / 1/20 / 1/8 / 1/600</td><td>อีเวนต์/เงื่อนไขพิเศษ</td></tr>
+</table>
 <h2>ถิ่นตามไบโอม</h2>
-<table><tr><th>ม็อบ</th><th>ที่อยู่</th></tr>
-<tr><td><img class="icon" src="assets/slime_in_a_bucket.png" alt="">Supermassive Slime <img class="icon" src="assets/slime_core.png" alt=""></td><td>ป่า/ทุ่ง/หนอง 1/1000 แทนสไลม์ ต้านธนู</td></tr>
-<tr><td>Giant Ant</td><td>ทุ่ง / รังมด</td></tr>
-<tr><td>Knight Spider / Orc</td><td>ทะเลทราย</td></tr>
-<tr><td>Horned Rabbit</td><td>Taiga / Cherry / Dark Forest</td></tr>
-<tr><td>Unicorn</td><td>ภูเขา + Flower Forest</td></tr>
-<tr><td>Hell Moth</td><td>Dark Forest + Pale Garden</td></tr>
-<tr><td>Phantaspore</td><td>Mushroom Fields</td></tr>
-<tr><td>Frostmaw</td><td>หิมะ (ล่องหนขโมยคริสตัล)</td></tr>
-<tr><td>Cyclops / Gorgon</td><td>ริมทะเล / ใต้วิหาร (ห้ามจ้อง)</td></tr>
+<table><tr><th></th><th>ม็อบ</th><th>ที่อยู่</th></tr>
+<tr><td><img class="icon" src="assets/slime_in_a_bucket.png" alt=""></td><td>สไลม์มวลมหาศาล</td><td>ป่า/ทุ่ง/หนอง ต้านธนู</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/giant_ant.png" alt=""></td><td>มดยักษ์</td><td>ทุ่ง / รังมด</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/knight_spider.png" alt=""></td><td>แมงมุมอัศวิน / ออร์ค</td><td>ทะเลทราย</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/horned_rabbit.png" alt=""></td><td>กระต่ายมีเขา</td><td>Taiga / Cherry / Dark Forest</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/unicorn.png" alt=""></td><td>ยูนิคอร์น</td><td>ภูเขา + Flower Forest</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/hell_moth.png" alt=""></td><td>ผีเสื้อนรก</td><td>Dark Forest + Pale Garden</td></tr>
+<tr><td><img class="icon-lg" src="assets/mobs/phantaspore.png" alt=""></td><td>แฟนตาสปอร์</td><td>Mushroom Fields</td></tr>
+<tr><td>—</td><td>ฟรอสต์มอว์</td><td>หิมะ (ล่องหนขโมยคริสตัล)</td></tr>
+<tr><td>—</td><td>ไซคลอปส์ / กอร์กอน</td><td>ริมทะเล / ใต้วิหาร (ห้ามจ้อง)</td></tr>
 </table>
+<details><summary>ที่มาข้อมูล (ไฟล์เกม)</summary><p>เรทวัน/คืนจาก spawn_rate_config บรรทัด 39-82 • ตัวแรร์บรรทัด 1-35 • ยูนิคอร์นเฉพาะถิ่นจาก incontrol/spawner.json • ของดรอปดูหน้าดรอป</p></details>
 </main>
 <footer><nav class="footer-nav" aria-label="ลิงก์ด่วน"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า 33</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
 </body>
