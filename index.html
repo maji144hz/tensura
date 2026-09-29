@@ -7,11 +7,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-<h1><img class="icon-lg" src="assets/slime_in_a_bucket.png" alt="">Tensura Neo Otherworld — คู่มือฉบับแจกจ่าย</h1>
-<p>จากไฟล์จริงในเครื่อง พร้อมอ้างอิงไฟล์ทุกหัวข้อ</p>
-</header>
-<nav>
+<nav aria-label="เมนูหลัก">
 <a class="active" href="index.html">หน้าแรก</a>
 <a href="skills.html">สกิลทั้งหมด</a>
 <a href="mobs.html">ม็อบ / เรทเกิด</a>
@@ -21,42 +17,64 @@
 <a href="quests.html">เควส</a>
 <a href="items.html">ไอเทม / อีโว</a>
 </nav>
+
 <main>
 <div class="hero">
-<h2>เริ่มผจญภัยต่างโลก</h2>
-<p>คู่มือครบ: สกิล 155+ • เควส 528 • ม็อบ บอส แร่ มิติ — อ่านจบเล่นเป็น</p>
-<div class="badges"><span class="badge">528 เควส</span><span class="badge">155+ สกิล</span><span class="badge">33 เผ่า</span><span class="badge">8 หมวด</span></div>
+<div>
+<p class="sub">Tensura Neo Otherworld</p>
+<h1>เริ่มผจญภัยต่างโลก</h1>
+<p class="lead">คู่มือครบทุกเรื่อง ตั้งแต่สกิล เควส ม็อบ บอส แร่ ไปจนถึงมิติ อ่านจบก็เล่นเป็น ทุกหัวข้อมีอ้างอิงจากไฟล์จริงในเกม</p>
+<div class="cta">
+<a class="btn" href="#quickstart">เริ่มด่วน 5 นาที</a>
+<a class="btn ghost" href="skills.html">ดูสกิลทั้งหมด</a>
 </div>
-<div class="card">
+<div class="stats">
+<div class="stat"><b>528</b><span>เควส</span></div>
+<div class="stat"><b>155+</b><span>สกิล</span></div>
+<div class="stat"><b>33</b><span>เผ่า</span></div>
+<div class="stat"><b>8</b><span>หมวด</span></div>
+</div>
+</div>
+<div class="slime-stage" aria-hidden="true">
+<div class="gel"></div>
+<img src="assets/slime_in_a_bucket.png" alt="">
+</div>
+</div>
+
+<section id="quickstart">
 <h2>เริ่มด่วน 5 นาที</h2>
 <ol class="steps">
 <li>เลือกเผ่า 1 ใน 33 เผ่า</li>
-<li>กด <b>B</b> → สกิลเทาใส่ช่อง → <b>Z / X / C</b> เรียน</li>
-<li>ฆ่ามอนเก็บ <b>EP</b> (ได้ 3% ของเหยื่อ)</li>
-<li>EP 2,000 → Telepathy / 3,000 → Strength / 5,000 → Coercion</li>
+<li>กด <b>B</b> แล้วใส่สกิลสีเทาลงช่อง จากนั้นกด <b>Z / X / C</b> เพื่อเรียน</li>
+<li>ฆ่ามอนเพื่อเก็บ <b>EP</b> (ได้ 3% ของเหยื่อ)</li>
+<li>EP 2,000 ปลด Telepathy, 3,000 ปลด Strength, 5,000 ปลด Coercion</li>
 <li>ขุด <b>Magic Ore</b> <img class="icon" src="assets/magic_ore_shard.png" alt=""> ด้วย Netherite ขึ้นไป</li>
 </ol>
-</div>
+</section>
+
+<section>
 <h2>เลือกหัวข้อ</h2>
 <div class="grid">
-<a class="menu-card" href="skills.html"><img class="icon-lg" src="assets/book_logo.png" alt=""><h3>สกิลทั้งหมด</h3><p>Common / Extra / Unique / Resistance + เงื่อนไขครอบครอง</p></a>
-<a class="menu-card" href="mobs.html"><img class="icon-lg" src="assets/slime_core.png" alt=""><h3>ม็อบ / เรทเกิด</h3><p>ถิ่นไบโอม เรท 1 in X ตัวแรร์</p></a>
-<a class="menu-card" href="ores.html"><img class="icon-lg" src="assets/x_magic_ore.png" alt=""><h3>แร่ / วัสดุ</h3><p>Magic Ore สูตรผสม Low→Pure→Mithril</p></a>
-<a class="menu-card" href="bosses.html"><img class="icon-lg" src="assets/charybdis_core.png" alt=""><h3>บอส / มิติ</h3><p>วิธีเสก ของดรอป ประตูมิติ</p></a>
-<a class="menu-card" href="systems.html"><img class="icon-lg" src="assets/tno_human_form.png" alt=""><h3>ระบบสำคัญ</h3><p>กิลด์ ตั้งชื่อ Demon Lord คำสั่ง</p></a>
-<a class="menu-card" href="quests.html"><img class="icon-lg" src="assets/x_slime_staff.png" alt=""><h3>เควส</h3><p>เส้นหลัก EP เควสห้ามข้าม 7 เควส</p></a>
-<a class="menu-card" href="items.html"><img class="icon-lg" src="assets/zane_blood.png" alt=""><h3>ไอเทม / อีโว</h3><p>ของอีโวรายเผ่า เลือด Essence</p></a>
+<a class="menu-card" href="skills.html"><div class="thumb"><img src="assets/book_logo.png" alt=""></div><h3>สกิลทั้งหมด</h3><p>Common / Extra / Unique / Resistance พร้อมเงื่อนไขครอบครอง</p></a>
+<a class="menu-card" href="mobs.html"><div class="thumb"><img src="assets/slime_core.png" alt=""></div><h3>ม็อบ / เรทเกิด</h3><p>ถิ่นไบโอม เรท 1 in X และตัวแรร์</p></a>
+<a class="menu-card" href="ores.html"><div class="thumb"><img src="assets/x_magic_ore.png" alt=""></div><h3>แร่ / วัสดุ</h3><p>Magic Ore สูตรผสม Low → Pure → Mithril</p></a>
+<a class="menu-card" href="bosses.html"><div class="thumb"><img src="assets/charybdis_core.png" alt=""></div><h3>บอส / มิติ</h3><p>วิธีเสก ของดรอป และประตูมิติ</p></a>
+<a class="menu-card" href="systems.html"><div class="thumb"><img src="assets/tno_human_form.png" alt=""></div><h3>ระบบสำคัญ</h3><p>กิลด์ การตั้งชื่อ Demon Lord และคำสั่ง</p></a>
+<a class="menu-card" href="quests.html"><div class="thumb"><img src="assets/x_slime_staff.png" alt=""></div><h3>เควส</h3><p>เส้นหลัก EP และ 7 เควสที่ห้ามข้าม</p></a>
+<a class="menu-card" href="items.html"><div class="thumb"><img src="assets/zane_blood.png" alt=""></div><h3>ไอเทม / อีโว</h3><p>ของอีโวรายเผ่า และเลือด Essence</p></a>
 </div>
-<div class="card">
+</section>
+
+<section>
 <h2>ค่าหลัก 3 อย่าง</h2>
-<table>
-<tr><th>ค่า</th><th>หา</th><th>ใช้</th></tr>
-<tr><td><b>EP</b></td><td>ฆ่ามอน</td><td>ปลดสกิล / อีโว / เข้าโบสถ์ 5M</td></tr>
-<tr><td><b>Magicule</b> <img class="icon" src="assets/x_charybdis_meat.png" alt=""></td><td>ฆ่า / รีเจน / โพชัน</td><td>ร่าย / ผสมของ / เสกบอส</td></tr>
-<tr><td><b>Soul</b></td><td>ฆ่ามอน EP สูง</td><td>ตื่น Demon Lord 10k</td></tr>
-</table>
+<div class="kv">
+<div><h3>EP</h3><dl><dt>หาจาก</dt><dd>ฆ่ามอน</dd><dt>ใช้กับ</dt><dd>ปลดสกิล / อีโว / เข้าโบสถ์ 5M</dd></dl></div>
+<div><h3>Magicule <img class="icon" src="assets/x_charybdis_meat.png" alt=""></h3><dl><dt>หาจาก</dt><dd>ฆ่า / รีเจน / โพชัน</dd><dt>ใช้กับ</dt><dd>ร่าย / ผสมของ / เสกบอส</dd></dl></div>
+<div><h3>Soul</h3><dl><dt>หาจาก</dt><dd>ฆ่ามอน EP สูง</dd><dt>ใช้กับ</dt><dd>ตื่น Demon Lord 10k</dd></dl></div>
 </div>
+</section>
 </main>
-<footer>แจกจ่ายได้ • อ้างอิงไฟล์ในเครื่อง • ดูรายละเอียดใน tensura-guide.md</footer>
+
+<footer>คู่มือฉบับแจกจ่าย • อ้างอิงจากไฟล์จริงในเกม</footer>
 </body>
 </html>
