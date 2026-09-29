@@ -30,7 +30,8 @@
 <header><h1><img class="icon-lg" src="assets/book_logo.png" alt="">ฐานข้อมูลสกิลทั้งหมด</h1><p>ชื่อ + คำอธิบายในเกม + ค่าเรียน • พิมพ์ค้นหาได้</p></header>
 <nav><a href="index.html">หน้าแรก</a><a class="active" href="skills.html">สกิลทั้งหมด</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="systems.html">ระบบสำคัญ</a><a href="quests.html">เควส</a><a href="items.html">ไอเทม / อีโว</a></nav>
 <main>
-<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาสกิล... เช่น Predator, Regen, Fire"></div>
+<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาสกิล... เช่น พรีเดเตอร์, ฟื้นฟู, Predator, Regen">
+<label style="align-self:center;color:var(--muted)"><input type="checkbox" id="en"> โชว์อังกฤษ</label></div>
 <div class="chips" id="chips"></div>
 <div id="count"></div>
 <div id="list" class="grid" style="grid-template-columns:1fr"></div>
@@ -46,6 +47,24 @@ fetch("assets/skills_data.json").then(r => r.json()).then(d => {
   render();
 });
 document.getElementById("q").addEventListener("input", render);
+document.getElementById("en").addEventListener("change", render);
+function howText(e) {
+  if (e.how) return e.how;
+  const c = e.cost || "";
+  const t = e.type || "";
+  if (t === "Intrinsic") return "ติดตัวตามเผ่า กด B เรียน";
+  if (t.startsWith("Resistance")) return "โดนดาเมจธาตุนั้นสะสมแต้มแล้วกดเรียน";
+  if (t === "Magic") return "เรียนเวทด้วย Magicule";
+  if (t === "TNO") return "สกิลเสริม TNO (เควส/เผ่า)";
+  if (t === "Unique" || t === "Extra/Unique") {
+    const m = c.match(/mpAcquirement=([\d.]+)/);
+    return "เกิดใหม่สุ่ม / หนังสือสกิล" + (m ? " / จ่าย MP " + Number(m[1]).toLocaleString() : "");
+  }
+  const ep = c.match(/epAcquirement=([\d.]+)/);
+  if (ep && parseFloat(ep[1]) > 0) return "EP ถึง " + Number(ep[1]).toLocaleString() + " แล้วกด B เรียน";
+  if (/Acquirement/.test(c)) return "เงื่อนไขพิเศษ: " + c;
+  return "กด B เรียนได้เลย";
+}
 function buildChips() {
   const box = document.getElementById("chips");
   box.innerHTML = "";
@@ -61,16 +80,19 @@ function buildChips() {
 }
 function render() {
   const q = document.getElementById("q").value.toLowerCase();
+  const showEn = document.getElementById("en").checked;
   const list = DATA.filter(e =>
     (typeFilter === "all" || e.type === typeFilter) &&
-    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q))
+    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q) || (e.desc_th||"").includes(document.getElementById("q").value))
   );
   document.getElementById("count").textContent = "เจอ " + list.length + " สกิล";
   document.getElementById("list").innerHTML = list.slice(0, 300).map(e =>
-    '<div class="card skill"><h3>' + esc(e.name) + '</h3>' +
+    '<div class="card skill"><h3>' + (e.icon ? '<img class="icon" src="' + e.icon + '" alt="">' : '') + esc(e.name) + '</h3>' +
     '<div class="meta"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(e.mod) + '</span>' +
     '<code>' + esc(e.id) + '</code>' + (e.cost ? ' • ' + esc(e.cost) : '') + '</div>' +
-    '<p>' + esc(e.desc || "") + '</p></div>'
+    '<p>' + esc(e.desc_th || e.desc || "") + '</p>' +
+    (showEn && e.desc_th ? '<p style="color:var(--muted)">EN: ' + esc(e.desc || "") + '</p>' : '') +
+    '<p style="color:var(--accent)">วิธีหา: ' + esc(howText(e)) + '</p></div>'
   ).join("") + (list.length > 300 ? "<p>แสดง 300 อันแรก — พิมพ์ค้นหาให้แคบลง</p>" : "");
 }
 function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
