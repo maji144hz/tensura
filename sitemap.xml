@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc></url>
+  <url><loc>/getting-started.html</loc></url>
+  <url><loc>/skills.html</loc></url>
+  <url><loc>/abilities.html</loc></url>
+  <url><loc>/races.html</loc></url>
+  <url><loc>/mobs.html</loc></url>
+  <url><loc>/ores.html</loc></url>
+  <url><loc>/blocks.html</loc></url>
+  <url><loc>/bosses.html</loc></url>
+  <url><loc>/items.html</loc></url>
+  <url><loc>/mechanics.html</loc></url>
+  <url><loc>/structures.html</loc></url>
+  <url><loc>/commands.html</loc></url>
+  <url><loc>/config.html</loc></url>
+  <url><loc>/quests.html</loc></url>
+  <url><loc>/troubleshooting.html</loc></url>
+</urlset>
