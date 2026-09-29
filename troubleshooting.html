@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="th">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="?????? Tensura Neo Otherworld ???????: แก้แครช / ปัญหาบ่อย — Tensura Guide">
+<meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: แก้แครช / ปัญหาบ่อย"><meta property="og:type" content="website"><meta property="og:title" content="แก้แครช / ปัญหาบ่อย — Tensura Guide"><meta property="og:description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: แก้แครช / ปัญหาบ่อย"><meta name="theme-color" content="#0c1726">
 <title>แก้แครช / ปัญหาบ่อย — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png"></head>
 <body>
 <header><h1>Troubleshooting: แครช + ปัญหาบ่อย</h1><p>จาก <code>crash-reports/</code> จริงของแพ็กนี้</p></header>
-<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="gear.html">??????</a><a href="weapons.html">?????</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">????</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a><a class="active" href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="cooking.html">?????</a><a href="drops.html">????</a><a href="changelog.html">??????</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<nav aria-label="เมนูหลัก"><div class="nav-main"><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="races.html">เผ่า 33</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="quests.html">เควส</a></div><details class="nav-more has-active"><summary>เพิ่มเติม</summary><div class="nav-panel"><div><h4>ข้อมูลเกม</h4><a href="abilities.html">Abilities</a><a href="blocks.html">บล็อก</a><a href="items.html">ไอเทม / อีโว</a><a href="drops.html">ม็อบดรอป</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ / ประตู</a><a href="mechanics.html">Mechanics</a><a href="systems.html">ระบบสำคัญ</a></div><div><h4>ของใช้ / ของกิน</h4><a href="gear.html">เกียร์ / โลหะ</a><a href="weapons.html">อาวุธ / เกราะ</a><a href="cooking.html">อาหาร</a></div><div><h4>ช่วยเหลือ</h4><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a class="active" href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="changelog.html">อัปเดตเว็บ</a></div></div></details></nav>
 <main>
 <div class="card"><h2>1. เข้าโลกแล้วแครช Ticking entity — Zombie Horse</h2>
 <p><code>crash-2026-09-29_12.49.33-server.txt:16</code> <code>NullPointerException: WrappedGoal.isRunning()</code> ที่ <code>GoalSelector.tickRunningGoals</code> — ตัวต้นเหตุคือม้าซอมบี้ ID 10004 ที่ <code>-141,60,-1878</code> มีซอมบี้ขี่ (<code>:64-70</code>) ชน mixin <code>servercore activation_range.inactive_ticks.GoalSelectorMixin</code></p>
@@ -20,6 +20,6 @@
 <h2>5. อ่านแครชเอง</h2>
 <p>เปิด <code>crash-reports/</code> ดูบรรทัด <code>Description</code> + <code>Entity being ticked</code> (ชนิด/พิกัด) + <code>Affected level</code> (ชื่อโลก/seed) — ก็อป 3 ท่อนนี้มาถามต่อได้เลย</p>
 </main>
-<footer><nav class="footer-nav" aria-label="????????"><a href="getting-started.html">?????????</a> • <a href="skills.html">????</a> • <a href="races.html">????</a> • <a href="quests.html">????</a> • <a href="troubleshooting.html">???????</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
+<footer><nav class="footer-nav" aria-label="ลิงก์ด่วน"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า 33</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
 </body>
 </html>

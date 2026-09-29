@@ -20,11 +20,22 @@ img{max-width:100%}
 .icon-lg{width:48px;height:48px;object-fit:contain;vertical-align:middle;margin-right:6px;image-rendering:pixelated}
 
 /* nav */
-nav{position:sticky;top:0;z-index:10;display:flex;gap:6px;overflow-x:auto;padding:10px max(20px,calc((100% - 1080px)/2));
-  background:rgba(12,23,38,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);scrollbar-width:none}
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:8px;padding:10px max(20px,calc((100% - 1080px)/2));background:rgba(12,23,38,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-main{display:flex;gap:6px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
 nav a{white-space:nowrap;padding:6px 14px;border-radius:999px;color:var(--muted);font-size:.95rem;transition:background .2s,color .2s}
 nav a:hover{background:var(--panel);color:var(--text)}
 nav a.active{background:var(--slime);color:#06202e;font-weight:600}
+.nav-more{flex:none}
+.nav-more summary{list-style:none;cursor:pointer;padding:6px 16px;border-radius:999px;border:1px solid var(--line);font-size:.95rem;font-weight:500;color:var(--text);user-select:none}
+.nav-more summary::-webkit-details-marker{display:none}
+.nav-more summary::after{content:" \25BE"}
+.nav-more[open] summary,.nav-more.has-active summary{border-color:var(--slime);color:var(--slime)}
+.nav-panel{position:absolute;right:max(20px,calc((100% - 1080px)/2));top:calc(100% + 8px);width:min(720px,calc(100vw - 24px));max-height:72vh;overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;padding:18px;background:var(--bg2);border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.nav-panel h4{margin:0 0 6px;font-family:var(--head);font-weight:600;font-size:.85rem;color:var(--gold)}
+.nav-panel a{display:block;border-radius:10px;padding:6px 10px}
+footer nav.footer-nav{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 16px;padding:0 0 18px;background:none;border:0;backdrop-filter:none}
+footer .footer-nav a{padding:2px 4px;background:none;border:0;border-radius:0;font-size:.9rem}
+@media (max-width:700px){.nav-panel{position:fixed;left:12px;right:12px;top:58px;width:auto}}
 
 /* page header (sub pages) */
 header{padding:40px max(20px,calc((100% - 1080px)/2)) 28px;border-bottom:1px solid var(--line);
@@ -135,7 +146,7 @@ code{color:var(--mint)}
 main>p{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 18px}
 .card p{background:none;border:0;padding:0}
 pre{border-left:4px solid var(--gold)}
-footer a{display:inline-block;padding:8px 20px;border:1px solid var(--line);border-radius:999px;background:var(--panel);transition:border-color .2s,background .2s}
-footer a:hover{border-color:var(--slime);background:var(--bg2)}
-footer a::before{content:"\2190  "}
+footer>a{display:inline-block;padding:8px 20px;border:1px solid var(--line);border-radius:999px;background:var(--panel);transition:border-color .2s,background .2s}
+footer>a:hover{border-color:var(--slime);background:var(--bg2)}
+footer>a::before{content:"\2190  "}
 .menu-card,.card,.kv>div{box-shadow:0 8px 24px rgba(0,0,0,.18)}
