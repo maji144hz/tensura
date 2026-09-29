@@ -41,7 +41,7 @@
 let DATA = [];
 let typeFilter = "all";
 const TYPES = ["all","Common","Extra","Intrinsic","Unique","Magic","Resistance(easy)","Resistance(medium)","Resistance(hard)","Extra/Unique","Other"];
-fetch("assets/skills_data.json?v=2").then(r => {
+fetch("assets/skills_data.json?v=4").then(r => {
   if (!r.ok) throw new Error("HTTP " + r.status);
   return r.json();
 }).then(d => {
@@ -85,23 +85,55 @@ function buildChips() {
   });
 }
 function render() {
-  const q = document.getElementById("q").value.toLowerCase();
+  const qraw = document.getElementById("q").value;
+  const q = qraw.toLowerCase();
   const showEn = document.getElementById("en").checked;
   const list = DATA.filter(e =>
     (typeFilter === "all" || e.type === typeFilter) &&
-    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q) || (e.desc_th||"").includes(document.getElementById("q").value))
+    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q) || (e.desc_th||"").includes(qraw) || (e.wiki_th||"").includes(qraw))
   );
-  document.getElementById("count").textContent = "เจอ " + list.length + " สกิล";
+  document.getElementById("count").textContent = "เจอ " + list.length + " สกิล (รายละเอียดเต็มจากวิกิในเกม " + DATA.filter(e => e.wiki_th).length + " สกิล)";
   document.getElementById("list").innerHTML = list.slice(0, 300).map(e =>
     '<div class="card skill"><h3>' + (e.icon ? '<img class="icon" src="' + e.icon + '" alt="">' : '') + esc(e.name) + '</h3>' +
     '<div class="meta"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(e.mod) + '</span>' +
     '<code>' + esc(e.id) + '</code>' + (e.cost ? ' • ' + esc(e.cost) : '') + '</div>' +
-    '<p>' + esc(e.desc_th || e.desc || "") + '</p>' +
-    (showEn && e.desc_th ? '<p style="color:var(--muted)">EN: ' + esc(e.desc || "") + '</p>' : '') +
+    (e.wiki_th
+      ? '<p>' + esc(e.wiki_th).replace(/\n/g, "<br>") + '</p>'
+      : '<p>' + esc(e.desc_th || e.desc || "") + '</p>' +
+        (showEn && e.desc_th ? '<p style="color:var(--muted)">EN: ' + esc(e.desc || "") + '</p>' : '')) +
+    (e.cfg ? '<p style="color:var(--mint)">ค่าจริง <code>' + esc(e.cfg.f) + ' [' + esc(e.cfg.sec) + ']</code>: ' + esc(cfgText(e.cfg)) + '</p>' : '') +
     '<p style="color:var(--accent)">วิธีหา: ' + esc(howText(e)) + '</p></div>'
   ).join("") + (list.length > 300 ? "<p>แสดง 300 อันแรก — พิมพ์ค้นหาให้แคบลง</p>" : "");
 }
 function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+const THLABEL = {magiculeCost:"ใช้ MP",auraCost:"ใช้ Aura",castTime:"ร่าย",damage:"ดาเมจ",duration:"เวลา",cooldown:"คูลดาวน์",range:"ระยะ",distance:"ระยะ",radius:"รัศมี",width:"กว้าง",heal:"ฮีล",cost:"ต้นทุน",chance:"โอกาส",level:"เลเวล",amount:"จำนวน",count:"จำนวน",power:"พลัง",speed:"เร็ว",slow:"ช้า",epAcquirement:"ต้อง EP",mpAcquirement:"ต้อง MP"};
+function thLabel(k) {
+  if (THLABEL[k]) return THLABEL[k];
+  const b = k.replace(/Mastered$/, "");
+  if (THLABEL[b]) return THLABEL[b];
+  return k.replace(/([a-z])([A-Z])/g, "$1 $2");
+}
+function fmtVal(k, v) {
+  if (typeof v === "number" && /tick|time|duration|cooldown/i.test(k)) {
+    const s = Math.round(v / 20 * 10) / 10;
+    return v + " tick (" + s + " วิ)";
+  }
+  if (typeof v === "number" && Number.isInteger(v) && v >= 1000) return v.toLocaleString();
+  return String(v);
+}
+function cfgText(cfg) {
+  const p = cfg.p, out = [], done = new Set();
+  for (const k of Object.keys(p)) {
+    if (done.has(k) || k.endsWith("Mastered") && k.slice(0, -8) in p) continue;
+    if (k.endsWith("Mastered")) { out.push(thLabel(k) + " " + fmtVal(k, p[k])); done.add(k); continue; }
+    const m = k + "Mastered";
+    let v = fmtVal(k, p[k]);
+    if (m in p) { v += " → ชำนาญ " + fmtVal(m, p[m]); done.add(m); }
+    out.push(thLabel(k) + " " + v);
+    done.add(k);
+  }
+  return out.join(" • ");
+}
 </script>
 </body>
 </html>
