@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abilities — Tensura Guide</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header><h1>Abilities: ประเภท + วิธีปลด</h1><p>ฐานข้อมูล 408 สกิลอยู่ที่ <a href="skills.html">skills.html</a> — หน้านี้คือวิธีหา</p></header>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิล</a><a class="active" href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ</a><a href="items.html">ไอเทม</a><a href="blocks.html">บล็อก</a><a href="bosses.html">บอส</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a></nav>
+<main>
+<table><tr><th>ประเภท</th><th>วิธีปลด</th><th>ตัวอย่าง</th></tr>
+<tr><td>Common</td><td>EP ถึงแล้วกด B (<code>ability/common_config.toml</code>)</td><td>Coercion 5k, Strength 3k, Telepathy 2k, Gravity Flight 10k, Field 20k</td></tr>
+<tr><td>Extra</td><td>EP สูง / หนังสือสกิล (<code>extra_config.toml: Haki 100k, UltraspeedRegen 300k, Law 800k</code>)</td><td>Haki, DemonLord Haki 200k</td></tr>
+<tr><td>Intrinsic</td><td>ติดเผ่า กด B เรียนเลย</td><td>Darkness Transform (30 MP/20t)</td></tr>
+<tr><td>Unique</td><td>สุ่มเกิดใหม่ / หนังสือ / จ่าย MP (<code>unique_config.toml: Chef 10k, Predator 50k, Gluttony 100k</code>)</td><td>Predator, Gluttony, Pride, Great Sage 75k</td></tr>
+<tr><td>Resistance easy/medium/hard</td><td>โดนดาเมจธาตุนั้นสะสมแต้มแล้วเรียน (<code>skill_config.toml: easy 100</code>)</td><td>Fire/Water/Poison Resist</td></tr>
+<tr><td>Magic (Aspectual/Spiritual/Summon)</td><td>จ่าย Magicule (<code>tensura_skill_books-common.toml</code>)</td><td>Spatial Storage 3000 (54 ช่อง x100)</td></tr>
+<tr><td>Ultimate</td><td>ผสมสกิลมาสเตอรี่ + EP (<code>fox_ultimate/*.toml</code>)</td><td>Beelzebub = Gluttony+Merciless มาสเตอร์ + Hero/Demon Egg, Shub 2M EP</td></tr></table>
+<div class="card"><h2>ดูดสกิลด้วย Predator / Gluttony</h2>
+<p>Predator: 10% ได้ 1 สกิล / ฆ่าได้ 100% Intrinsic+Common+Extra+Resist + 30% EP ครั้งแรก • Gluttony: 30% ได้ 1-3 สกิล + 50% EP + ขโมย Corrosion (<code>fox wiki skill_descriptions.json:88,162</code>) • Degenerate แยกสกิลตอน EP &lt;75%</p>
+<p>Mastery: Intrinsic 100 / Extra 500 / Unique 1000 / Sin 1500 / Ultimate 10000 (<code>ability/skill_config.toml:1-22</code>) • เรียนใช้ 100 แต้ม คูลดาวน์ 10 วิ (<code>ability_config.toml [Learning]</code>)</p></div>
+<h2>หนังสือสกิล</h2>
+<p><code>tensura_skill_books:skill_study_book</code> รางวัลเควส <code>2C04AF:1084</code> เปิดได้ Predator ฯลฯ แปลไทยที่ <code>kubejs/assets/tensura_skill_books/lang/th_th.json</code> — ค้นทั้งหมดที่ <a href="skills.html">ฐานข้อมูล 408 สกิล</a> (<code>assets/skills_data.json</code>)</p>
+</main>
+<footer><a href="index.html">กลับหน้าแรก</a></footer>
+</body>
+</html>

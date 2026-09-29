@@ -4,9 +4,9 @@
 <title>ม็อบ / เรทเกิด — Tensura Guide</title><link rel="stylesheet" href="styles.css"></head>
 <body>
 <header><h1>ม็อบ / เรทเกิด / ถิ่น</h1><p>เรท 1 in X: ตัวเลข X ยิ่งน้อย ยิ่งเจอบ่อย</p></header>
-<nav><a href="index.html">หน้าแรก</a><a href="skills.html">สกิลทั้งหมด</a><a class="active" href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="systems.html">ระบบสำคัญ</a><a href="quests.html">เควส</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a class="active" href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a><a href="items.html">ไอเทม / อีโว</a></nav>
 <main>
-<h2>เรทพื้นฐาน [กลางวัน, กลางคืน]</h2>
+<h2>เรทพื้นฐาน [กลางวัน, กลางคืน] <code>spawn_rate_config.toml:39-82</code></h2>
 <table><tr><th>ม็อบ</th><th>เรท</th></tr>
 <tr><td>slime</td><td>[3, 2]</td></tr>
 <tr><td>direwolf</td><td>[2, 2]</td></tr>
@@ -14,9 +14,13 @@
 <tr><td>barghest / hover / leech</td><td>[7, 5]</td></tr>
 <tr><td>giantBat (กลางคืนเท่านั้น)</td><td>[0, 4]</td></tr>
 <tr><td>megalodon</td><td>[30, 15]</td></tr>
+<tr><td>armorsaurus / cattledeer / spearToro</td><td>[4,2] / [6,4] / [6,6]</td></tr>
+<tr><td>blackSpider / bladeTiger / ant / bee / moth</td><td>[8,5] / [8,6] / [8,6] / [11,8] / [12,9]</td></tr>
+<tr><td>unicorn / pegasus</td><td>[24,12] ดอกไม้/ภูเขา (<code>incontrol/spawner.json</code>)</td></tr>
+<tr><td>otherworlder</td><td>[60,30]</td></tr>
 <tr><td>lesser / greater / arch Daemon</td><td>[40,20] / [60,30] / [80,40]</td></tr>
 </table>
-<p><b>ตัวแรร์:</b> supermassive 1/1000 • metal 1/500 • orcLord 1/900 • alphaWolf 1/10</p>
+<p><b>ตัวแรร์ (<code>spawn_rate_config:1-35</code>):</b> supermassive 1/1000 • metal 1/500 • orcLord 1/900 • orcRoyal 1/100 • alphaWolf 1/10 • starBirthmark 1/8 • gehenna 1/20 • shizu 1/30 • hinata 1/69 • greaterSpirit 1/600</p>
 <h2>ถิ่นตามไบโอม</h2>
 <table><tr><th>ม็อบ</th><th>ที่อยู่</th></tr>
 <tr><td><img class="icon" src="assets/slime_in_a_bucket.png" alt="">Supermassive Slime <img class="icon" src="assets/slime_core.png" alt=""></td><td>ป่า/ทุ่ง/หนอง 1/1000 แทนสไลม์ ต้านธนู</td></tr>
