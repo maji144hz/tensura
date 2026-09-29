@@ -1,69 +1,79 @@
 <!doctype html>
 <html lang="th">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>สกิลทั้งหมด — Tensura Guide</title><link rel="stylesheet" href="styles.css"></head>
+<title>ฐานข้อมูลสกิลทั้งหมด — Tensura Guide</title><link rel="stylesheet" href="styles.css">
+<style>
+.searchbar { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.searchbar input {
+  flex: 1; min-width: 200px; padding: 10px 14px; font-size: 16px;
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--line); border-radius: 10px;
+}
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.chip {
+  padding: 6px 14px; border-radius: 18px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--card); font-size: 14px;
+}
+.chip.on { border-color: var(--accent); color: var(--accent); }
+.skill { padding: 12px 14px; }
+.skill h3 { margin: 0 0 4px; font-size: 16px; }
+.skill .meta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
+.skill p { margin: 4px 0 0; font-size: 14px; }
+.tag {
+  display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px;
+  border: 1px solid var(--line); margin-right: 6px;
+}
+#count { color: var(--muted); margin: 8px 0; }
+</style>
+</head>
 <body>
-<header><h1>สกิลทั้งหมด + เงื่อนไขครอบครอง</h1><p>Common 16 / Extra 46 / Intrinsic 26 / Unique MP 10k-100k</p></header>
+<header><h1><img class="icon-lg" src="assets/book_logo.png" alt="">ฐานข้อมูลสกิลทั้งหมด</h1><p>ชื่อ + คำอธิบายในเกม + ค่าเรียน • พิมพ์ค้นหาได้</p></header>
 <nav><a href="index.html">หน้าแรก</a><a class="active" href="skills.html">สกิลทั้งหมด</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="systems.html">ระบบสำคัญ</a><a href="quests.html">เควส</a><a href="items.html">ไอเทม / อีโว</a></nav>
 <main>
-<div class="card"><h2>เรียนยังไง</h2><p><img class="icon" src="assets/book_logo.png" alt="">กด <b>B</b> → สกิลเทา → ใส่ช่อง → <b>Z/X/C</b> • point 100 คูลดาวน์ 10 วิ • เพดาน ติดตัว 100 / พิเศษ 500 / Unique 1,000 / Ultimate 10,000</p>
-<p><img class="icon" src="assets/cat_common.png" alt="">Common <img class="icon" src="assets/cat_extra.png" alt="">Extra <img class="icon" src="assets/cat_intrinsic.png" alt="">Intrinsic <img class="icon" src="assets/cat_unique.png" alt="">Unique <img class="icon" src="assets/cat_ultimate.png" alt="">Ultimate <img class="icon" src="assets/cat_resistance.png" alt="">Resistance</p></div>
-<h2>Common (EP / ฆ่า / กิน)</h2>
-<table><tr><th>สกิล</th><th>เงื่อนไข</th></tr>
-<tr><td>Telepathy</td><td>EP 2,000</td></tr>
-<tr><td>Strength</td><td>EP 3,000</td></tr>
-<tr><td>Coercion / FarSight</td><td>EP 5,000</td></tr>
-<tr><td>WaterCurrent</td><td>EP 6,000</td></tr>
-<tr><td>GravityFlight / Hydraulic / Voice / WaterBlade</td><td>EP 10,000</td></tr>
-<tr><td>GravityField</td><td>EP 20,000</td></tr>
-<tr><td>RangedBarrier</td><td>EP 80,000 + ฆ่า Ifrit</td></tr>
-<tr><td>SelfRegen</td><td>ฆ่า Slime 500</td></tr>
-<tr><td>Paralysis</td><td>ฆ่า Centipede 500</td></tr>
-<tr><td>Poison</td><td>กินตาแมงมุม 100 / ฆ่า Black Spider 100</td></tr>
-<tr><td>Corrosion</td><td>กินเนื้อซอมบี้ 100 / ฆ่า Serpent 100 / Orc Lord 1</td></tr>
-</table>
-<h2>Extra (EP / ธาตุ / เควส)</h2>
-<table><tr><th>สกิล</th><th>เงื่อนไข</th></tr>
-<tr><td>DangerSense</td><td>EP 0 กดเรียนได้เลย</td></tr>
-<tr><td>AllSeeingEye</td><td>EP 5,000</td></tr>
-<tr><td>ThoughtAcceleration</td><td>EP 8,000</td></tr>
-<tr><td>GodwolfSense</td><td>EP 10,000</td></tr>
-<tr><td>StrengthenBody</td><td>EP 15,000</td></tr>
-<tr><td>Analytical / Steel</td><td>EP 20,000</td></tr>
-<tr><td>BodyDouble / Haki</td><td>EP 100,000</td></tr>
-<tr><td>DemonLord/Hero/Mana/Mortal/Sacred Haki</td><td>EP 200,000</td></tr>
-<tr><td>UltraspeedRegen</td><td>EP 300,000</td></tr>
-<tr><td>LawManipulation</td><td>EP 800,000</td></tr>
-<tr><td>InfiniteRegen</td><td>EP 2,000,000</td></tr>
-<tr><td>สายธาตุ 8 ธาตุ</td><td>เก่งธาตุนั้น 3 + EP 400k / ทนดาเมจ 800k</td></tr>
-</table>
-<p>ต้นเกมต้องรีบ: ตาบอดเก็บ EP → Danger / ดูด Lizard → Heat / ดูด Bat → Sound / ครบ 3 → Universal Perception</p>
-<h2>Intrinsic (ติดเผ่า)</h2>
-<p>AbsorbDissolve, BeastTransformation, BodyArmor, Charm, DragonEar/Eye/Mode/Skin, Drain, Flame/Ice/Thunder/Poison/Paralysis Breath, Possession, ScaleArmor, WaterBreathing ฯลฯ — ยกเว้น Blood Ray ต้อง EP 500k</p>
-<h2>Unique (MP)</h2>
-<table><tr><th>MP</th><th>สกิล</th></tr>
-<tr><td>10k</td><td>Chef</td></tr>
-<tr><td>20k</td><td>Berserk, Seer</td></tr>
-<tr><td>30k</td><td>Analyst, Commander, Observer, Researcher ฯลฯ</td></tr>
-<tr><td>35k</td><td>Degenerate</td></tr>
-<tr><td>40k</td><td>Berserker, Mathematician, Seeker</td></tr>
-<tr><td>50k</td><td>Predator, Fighter, Tuner, Usurper ฯลฯ</td></tr>
-<tr><td>60k</td><td>AbsoluteSeverance, Cook, Reaper ฯลฯ</td></tr>
-<tr><td>70k</td><td>Gourmand, Merciless</td></tr>
-<tr><td>75k</td><td>GreatSage</td></tr>
-<tr><td>90k</td><td>InfinityPrison</td></tr>
-<tr><td>100k</td><td>Gluttony, Greed, Lust, Pride, Sloth, Wrath, Envy</td></tr>
-</table>
-<p>เกิดใหม่สุ่มรอบแรก ~90 อัน รอบสอง 25 อัน (chef, great_sage, merciless ฯลฯ)</p>
-<h2>Resistance (โดนตีเพื่อเรียน)</h2>
-<table><tr><th>กลุ่ม</th><th>โดนครั้งละ</th><th>แต้ม</th></tr>
-<tr><td>ง่าย: พิษ ชา กัดกร่อน</td><td>5</td><td>350</td></tr>
-<tr><td>กลาง: ไฟ น้ำ ลม ดิน ฯลฯ</td><td>15</td><td>500</td></tr>
-<tr><td>ยาก: กาย จิต เวท</td><td>20</td><td>700</td></tr>
-</table>
-<h2>Ultimate (สรุปย่อ)</h2>
-<p>Raphael (Sage+Degenerate) / Beelzebub (Gluttony+Merciless) / Uriel (Infinity Prison+รวมร่าง) / Veldora (Ender Dragon+ลม+400k) / Shub-Niggurath (3 เทพ+เก่ง 20+EP 2M) / Satella (max 1M) / Mahoraga (10M)</p>
+<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาสกิล... เช่น Predator, Regen, Fire"></div>
+<div class="chips" id="chips"></div>
+<div id="count"></div>
+<div id="list" class="grid" style="grid-template-columns:1fr"></div>
 </main>
-<footer><a href="index.html">กลับหน้าแรก</a></footer>
+<footer><a href="index.html">กลับหน้าแรก</a> • ข้อมูลจาก lang ม็อด + config (408 สกิล)</footer>
+<script>
+let DATA = [];
+let typeFilter = "all";
+const TYPES = ["all","Common","Extra","Intrinsic","Unique","Magic","Resistance(easy)","Resistance(medium)","Resistance(hard)","Extra/Unique","Other"];
+fetch("assets/skills_data.json").then(r => r.json()).then(d => {
+  DATA = d.map(e => ({...e, type: e.type || "Other"}));
+  buildChips();
+  render();
+});
+document.getElementById("q").addEventListener("input", render);
+function buildChips() {
+  const box = document.getElementById("chips");
+  box.innerHTML = "";
+  TYPES.forEach(t => {
+    const n = t === "all" ? DATA.length : DATA.filter(e => e.type === t).length;
+    if (t !== "all" && n === 0) return;
+    const s = document.createElement("span");
+    s.className = "chip" + (t === typeFilter ? " on" : "");
+    s.textContent = (t === "all" ? "ทั้งหมด" : t) + " (" + n + ")";
+    s.onclick = () => { typeFilter = t; buildChips(); render(); };
+    box.appendChild(s);
+  });
+}
+function render() {
+  const q = document.getElementById("q").value.toLowerCase();
+  const list = DATA.filter(e =>
+    (typeFilter === "all" || e.type === typeFilter) &&
+    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q))
+  );
+  document.getElementById("count").textContent = "เจอ " + list.length + " สกิล";
+  document.getElementById("list").innerHTML = list.slice(0, 300).map(e =>
+    '<div class="card skill"><h3>' + esc(e.name) + '</h3>' +
+    '<div class="meta"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(e.mod) + '</span>' +
+    '<code>' + esc(e.id) + '</code>' + (e.cost ? ' • ' + esc(e.cost) : '') + '</div>' +
+    '<p>' + esc(e.desc || "") + '</p></div>'
+  ).join("") + (list.length > 300 ? "<p>แสดง 300 อันแรก — พิมพ์ค้นหาให้แคบลง</p>" : "");
+}
+function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+</script>
 </body>
 </html>
