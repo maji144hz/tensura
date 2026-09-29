@@ -4,38 +4,31 @@
 <meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: ฐานข้อมูลสกิลทั้งหมด"><meta property="og:type" content="website"><meta property="og:title" content="ฐานข้อมูลสกิลทั้งหมด — Tensura Guide"><meta property="og:description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: ฐานข้อมูลสกิลทั้งหมด"><meta name="theme-color" content="#0c1726">
 <title>ฐานข้อมูลสกิลทั้งหมด — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png">
 <style>
-.searchbar { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
-.searchbar input {
-  flex: 1; min-width: 200px; padding: 10px 14px; font-size: 16px;
-  background: var(--card); color: var(--text);
-  border: 1px solid var(--line); border-radius: 10px;
-}
+.searchbar { display: flex; gap: 12px; margin: 16px 0; flex-wrap: wrap; align-items: center; }
+.searchbar input[type="text"] { flex: 1; min-width: 220px; font-size: 16px; padding: 12px 16px; }
+.toggle { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.toggle input { width: 18px; height: 18px; padding: 0; accent-color: var(--slime); cursor: pointer; }
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-.chip {
-  padding: 6px 14px; border-radius: 18px; cursor: pointer;
-  border: 1px solid var(--line); background: var(--card); font-size: 14px;
-}
-.chip.on { border-color: var(--accent); color: var(--accent); }
-.skill { padding: 12px 14px; }
-.skill h3 { margin: 0 0 4px; font-size: 16px; }
-.skill .meta { color: var(--muted); font-size: 13px; margin-bottom: 4px; }
-.skill p { margin: 4px 0 0; font-size: 14px; }
-.tag {
-  display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px;
-  border: 1px solid var(--line); margin-right: 6px;
-}
-#count { color: var(--muted); margin: 8px 0; }
+.chip { padding: 6px 14px; border-radius: 999px; cursor: pointer; border: 1px solid var(--line); background: var(--card); color: var(--text); font: 500 14px var(--body); }
+.chip:hover { border-color: var(--slime); background: var(--bg2); }
+.chip.on { background: var(--slime); border-color: var(--slime); color: #06202e; font-weight: 600; }
+#count { color: var(--muted); margin: 10px 0 16px; }
+#list { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); }
+.skill { margin: 0; padding: 14px 16px; min-width: 0; overflow-wrap: anywhere; }
+.skill h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.skill .meta { color: var(--muted); font-size: 13px; margin-bottom: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.skill p { margin: 6px 0 0; font-size: 14px; }
 </style>
 </head>
 <body>
 <header><h1><img class="icon-lg" src="assets/book_logo.png" alt="">ฐานข้อมูลสกิลทั้งหมด</h1><p>ชื่อ + คำอธิบายในเกม + ค่าเรียน • พิมพ์ค้นหาได้ • ดูวิธีปลดตามประเภทที่ <a href="abilities.html">Abilities</a></p></header>
 <nav aria-label="เมนูหลัก"><div class="nav-main"><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a class="active" href="skills.html">สกิลทั้งหมด</a><a href="races.html">เผ่า 33</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="quests.html">เควส</a></div><details class="nav-more"><summary>เพิ่มเติม</summary><div class="nav-panel"><div><h4>ข้อมูลเกม</h4><a href="abilities.html">Abilities</a><a href="blocks.html">บล็อก</a><a href="items.html">ไอเทม / อีโว</a><a href="drops.html">ม็อบดรอป</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ / ประตู</a><a href="mechanics.html">Mechanics</a><a href="systems.html">ระบบสำคัญ</a></div><div><h4>ของใช้ / ของกิน</h4><a href="gear.html">เกียร์ / โลหะ</a><a href="weapons.html">อาวุธ / เกราะ</a><a href="cooking.html">อาหาร</a></div><div><h4>ช่วยเหลือ</h4><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="changelog.html">อัปเดตเว็บ</a></div></div></details></nav>
 <main>
-<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาสกิล... เช่น พรีเดเตอร์, ฟื้นฟู, Predator, Regen">
-<label style="align-self:center;color:var(--muted)"><input type="checkbox" id="en"> โชว์อังกฤษ</label></div>
+<div class="searchbar"><input id="q" type="text" aria-label="ค้นหาสกิล" placeholder="ค้นหาสกิล... เช่น พรีเดเตอร์, ฟื้นฟู, Predator, Regen">
+<label class="toggle"><input type="checkbox" id="en"> โชว์อังกฤษ</label></div>
 <div class="chips" id="chips"></div>
 <div id="count">กำลังโหลด...</div>
-<div id="list" class="grid" style="grid-template-columns:1fr"></div>
+<div id="list"></div>
 </main>
 <footer><nav class="footer-nav" aria-label="ลิงก์ด่วน"><a href="getting-started.html">เริ่มเล่น</a> � <a href="skills.html">สกิลทั้งหมด</a> � <a href="races.html">เผ่า 33</a> � <a href="quests.html">เควส</a> � <a href="troubleshooting.html">แก้แครช</a> � <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a> • ข้อมูลจาก lang ม็อด + config (414 สกิล)</footer>
 <script>
@@ -78,7 +71,8 @@ function buildChips() {
   TYPES.forEach(t => {
     const n = t === "all" ? DATA.length : DATA.filter(e => e.type === t).length;
     if (t !== "all" && n === 0) return;
-    const s = document.createElement("span");
+    const s = document.createElement("button");
+    s.type = "button";
     s.className = "chip" + (t === typeFilter ? " on" : "");
     s.textContent = (t === "all" ? "ทั้งหมด" : t) + " (" + n + ")";
     s.onclick = () => { typeFilter = t; buildChips(); render(); };

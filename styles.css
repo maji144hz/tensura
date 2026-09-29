@@ -2,6 +2,7 @@
 :root{
   --bg:#0c1726; --bg2:#12233a; --panel:#152a45; --line:#25405f;
   --slime:#5cc8ec; --mint:#8fe8cb; --gold:#f2c26b;
+  --card:var(--panel); --accent:var(--gold); --link:var(--slime);
   --text:#e8f3fa; --muted:#9db6cc;
   --head:'Kanit','Noto Sans Thai',sans-serif;
   --body:'Noto Sans Thai','Sarabun',system-ui,sans-serif;
@@ -150,3 +151,6 @@ footer>a{display:inline-block;padding:8px 20px;border:1px solid var(--line);bord
 footer>a:hover{border-color:var(--slime);background:var(--bg2)}
 footer>a::before{content:"\2190  "}
 .menu-card,.card,.kv>div{box-shadow:0 8px 24px rgba(0,0,0,.18)}
+
+.grid>*{min-width:0}
+.searchbar input[type="checkbox"]{min-width:0}
