@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="คู่มือ Tensura Neo Otherworld ภาษาไทย: ม็อบดรอปอะไร">
+<title>ม็อบดรอป — Tensura Guide</title><link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/slime_core.png">
+<style>
+.searchbar { display:flex; gap:8px; margin:16px 0; }
+.searchbar input { flex:1; padding:10px 14px; font-size:16px; background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:10px; }
+#count { color:var(--muted); margin:8px 0; }
+</style>
+</head>
+<body>
+<header><h1>ม็อบดรอปอะไร</h1><p>75 ม็อบ Tensura ดรอปอะไร เรทเท่าไหร่ — จาก <code>data/tensura/loot_table/entities/*.json</code> ใน jar</p></header>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="gear.html">เกียร์</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="quests.html">เควส</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="cooking.html">อาหาร</a><a class="active" href="drops.html">ดรอป</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<main>
+<h2>ของอีโวสำคัญ ดรอปจากตัวไหน</h2>
+<table><tr><th>ไอเทม</th><th>ดรอปจาก (โอกาส x จำนวน)</th><th>ใช้ทำอะไร</th></tr>
+<tr><td><img class="icon" src="assets/dragon_essence.png" alt="">Dragon Essence</td><td>basilisk (1% x1.0)<br>charybdis (100% x1-3)<br>lizardman (25% x1.0)</td><td>อีโว Dragonewt x10 (lizardman_config:29)</td></tr><tr><td><img class="icon" src="assets/daemon_essence.png" alt="">Daemon Essence</td><td>arch_daemon (50% x1.0)<br>greater_daemon (10% x1.0)<br>lesser_daemon (1% x1.0)</td><td>อีโว Wicked Oni x10 (ogre_config:113)</td></tr><tr><td><img class="icon" src="assets/elemental_essence.png" alt="">Elemental Essence</td><td>akash (100% x1.0)<br>aqua_frog (10% x1.0)<br>beast_gnome (10% x1.0)<br>elemental_colossus (10% x1.0)<br>feathered_serpent (10% x1.0)<br>ifrit (100% x1.0)<br>salamander (10% x1.0)<br>sylphide (100% x1.0)<br>undine (100% x1.0)<br>war_gnome (100% x1.0)<br>winged_cat (10% x1.0)</td><td>อีโว Mystic Oni x10 (ogre_config:85)</td></tr><tr><td><img class="icon" src="assets/royal_blood.png" alt="">Royal Blood</td><td>orc (25% x1.0)<br>orc_disaster (100% x1.0)<br>orc_lord (50% x1.0)</td><td>อีโว Orc Lord x10 (orc_config:57)</td></tr><tr><td><img class="icon" src="assets/slime_core.png" alt="">Slime Core</td><td>metal_slime (100% x1.0)<br>slime (100% x1.0)<br>supermassive_slime (100% x1.0)</td><td>เฉพาะตัว massive</td></tr><tr><td><img class="icon" src="assets/magic_ore_shard.png" alt="">Magic Ore Shard</td><td>metal_slime (100% x5-8)</td><td>ฟาร์มจาก Metal Slime 5-8/ตัว</td></tr><tr><td><img class="icon" src="assets/charybdis_scale.png" alt="">Charybdis Scale</td><td>charybdis (100% x6-12)</td><td>ทำชุด (6-12/ตัว)</td></tr>
+</table>
+<p>หมายเหตุ: slime_core ดรอปเฉพาะจากตัว massive (supermassive ทุกตัว, slime ธรรมดาต้องตัวใหญ่) • โอกาสคือฐานก่อน Looting • zane_blood ไม่มีใน loot table (ได้จาก Ghoul ตามเควสa)</p>
+<h2>ค้นหาทั้งหมด (75 ม็อบ)</h2>
+<div class="searchbar"><input id="q" type="text" placeholder="ค้นหาม็อบ/ไอเทม... เช่น essence, orc, slime"></div>
+<div id="count"></div>
+<table><tr><th>ม็อบ</th><th>ไอเทม</th><th>โอกาส</th><th>จำนวน</th></tr><tbody id="list"></tbody></table>
+</main>
+<footer><nav class="footer-nav" aria-label="ลิงก์ย่อ"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
+<script>
+const DATA = [
+{m:"akash",n:"elemental_essence",c:100,k:"1.0"},
+{m:"akash",n:"space_elemental_shard",c:100,k:"1-3"},
+{m:"aqua_frog",n:"water_elemental_shard",c:25.0,k:"1.0"},
+{m:"aqua_frog",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"arch_daemon",n:"daemon_essence",c:50.0,k:"1.0"},
+{m:"armorsaurus",n:"raw_armorsaurus_meat",c:100,k:"1-3"},
+{m:"armorsaurus",n:"armorsaurus_scale",c:100,k:"3-8"},
+{m:"armorsaurus",n:"armorsaurus_shell",c:100,k:"2-3"},
+{m:"army_wasp",n:"insectar_carapace",c:100,k:"0-1"},
+{m:"army_wasp",n:"honeycomb",c:100,k:"0-2"},
+{m:"barghest",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"basilisk",n:"feather",c:100,k:"1-3"},
+{m:"basilisk",n:"monster_leather_b",c:100,k:"0-2"},
+{m:"basilisk",n:"dragon_essence",c:1.0,k:"1.0"},
+{m:"beast_gnome",n:"earth_elemental_shard",c:25.0,k:"1.0"},
+{m:"beast_gnome",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"black_spider",n:"sticky_thread",c:100,k:"10-20"},
+{m:"black_spider",n:"steel_thread",c:100,k:"10-20"},
+{m:"black_spider",n:"spider_fang",c:100,k:"1-3"},
+{m:"black_spider",n:"spider_eye",c:100,k:"6-8"},
+{m:"blade_tiger",n:"monster_leather_a",c:100,k:"0-3"},
+{m:"blade_tiger",n:"raw_blade_tiger_meat",c:100,k:"1-3"},
+{m:"blade_tiger",n:"blade_tiger_tail",c:100,k:"1"},
+{m:"cattledeer",n:"monster_leather_d",c:100,k:"0-2"},
+{m:"cattledeer",n:"cattledeer_beef",c:100,k:"1-2"},
+{m:"charybdis",n:"dragon_essence",c:100,k:"1-3"},
+{m:"charybdis",n:"charybdis_scale",c:100,k:"6-12"},
+{m:"charybdis",n:"raw_charybdis_meat",c:100,k:"12-24"},
+{m:"direwolf",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"dragon_peacock",n:"dragon_peacock_feather",c:100,k:"0-2"},
+{m:"elemental_colossus",n:"pure_magisteel_block",c:100,k:"1.0"},
+{m:"elemental_colossus",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"evil_centipede",n:"centipede_stinger",c:100,k:"0-2"},
+{m:"feathered_serpent",n:"wind_elemental_shard",c:25.0,k:"1.0"},
+{m:"feathered_serpent",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"giant_ant",n:"giant_ant_carapace",c:100,k:"2-3"},
+{m:"giant_ant",n:"giant_ant_leg",c:100,k:"2-6"},
+{m:"giant_bat",n:"giant_bat_wing",c:100,k:"0-2"},
+{m:"giant_bat",n:"raw_giant_bat_meat",c:100,k:"1-4"},
+{m:"giant_bear",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"giant_cod",n:"cod",c:100,k:"0-1"},
+{m:"giant_cod",n:"bone",c:100,k:"0-2"},
+{m:"giant_salmon",n:"salmon",c:100,k:"0-1"},
+{m:"giant_salmon",n:"bone",c:100,k:"0-2"},
+{m:"goblin",n:"leather",c:100,k:"0-2"},
+{m:"goblin",n:"bone",c:100,k:"1-2"},
+{m:"greater_daemon",n:"daemon_essence",c:10.0,k:"1.0"},
+{m:"hell_caterpillar",n:"hell_moth_silk",c:100,k:"6-12"},
+{m:"hell_caterpillar",n:"hell_moth_silk",c:100,k:"1-3"},
+{m:"hell_caterpillar",n:"gehenna_moth_silk",c:100,k:"1-3"},
+{m:"hell_caterpillar",n:"gehenna_moth_silk",c:100,k:"6-12"},
+{m:"hell_moth",n:"gehenna_moth_silk",c:100,k:"2-8"},
+{m:"hell_moth",n:"hell_moth_silk",c:100,k:"2-8"},
+{m:"horned_bear",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"horned_bear",n:"beast_horn",c:100,k:"0-1"},
+{m:"horned_rabbit",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"horned_rabbit",n:"beast_horn",c:100,k:"0-1"},
+{m:"horned_rabbit",n:"rabbit_foot",c:100,k:"0-1"},
+{m:"hound_dog",n:"monster_leather_d",c:100,k:"1-3"},
+{m:"hover_lizard",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"ifrit",n:"elemental_essence",c:100,k:"1.0"},
+{m:"ifrit",n:"fire_elemental_shard",c:100,k:"1-3"},
+{m:"kirara_mizutani",n:"magic_stone",c:100,k:"1.0"},
+{m:"knight_spider",n:"knight_spider_carapace",c:100,k:"2-3"},
+{m:"knight_spider",n:"knight_spider_leg",c:100,k:"2-5"},
+{m:"kyoya_tachibana",n:"spatial_blade_schematic",c:100,k:"1.0"},
+{m:"landfish",n:"prismarine_shard",c:100,k:"0-3"},
+{m:"landfish",n:"prismarine_crystals",c:100,k:"0-2"},
+{m:"leech_lizard",n:"monster_leather_c",c:100,k:"1-3"},
+{m:"lesser_daemon",n:"daemon_essence",c:1.0,k:"1.0"},
+{m:"lizardman",n:"cod",c:100,k:"0-1"},
+{m:"lizardman",n:"salmon",c:100,k:"0-1"},
+{m:"lizardman",n:"bone_meal",c:100,k:"0-1"},
+{m:"lizardman",n:"dragon_essence",c:25.0,k:"1.0"},
+{m:"megalodon",n:"bone",c:100,k:"2-5"},
+{m:"megalodon",n:"raw_megalodon_meat",c:100,k:"6-10"},
+{m:"metal_slime",n:"magic_ore_shard",c:100,k:"5-8"},
+{m:"metal_slime",n:"slime_core",c:100,k:"1.0"},
+{m:"one_eyed_owl",n:"ender_eye",c:100,k:"1"},
+{m:"one_eyed_owl",n:"invisible_feather",c:100,k:"0-1"},
+{m:"orc",n:"bone",c:100,k:"0-2"},
+{m:"orc",n:"porkchop",c:100,k:"0-2"},
+{m:"orc",n:"royal_blood",c:25.0,k:"1.0"},
+{m:"orc_disaster",n:"bone",c:100,k:"0-5"},
+{m:"orc_disaster",n:"porkchop",c:100,k:"2-7"},
+{m:"orc_disaster",n:"orc_disaster_head",c:100,k:"1.0"},
+{m:"orc_disaster",n:"royal_blood",c:100,k:"1.0"},
+{m:"orc_lord",n:"bone",c:100,k:"0-5"},
+{m:"orc_lord",n:"porkchop",c:100,k:"0-5"},
+{m:"orc_lord",n:"royal_blood",c:50.0,k:"1.0"},
+{m:"pegacorn",n:"unicorn_horn",c:100,k:"1.0"},
+{m:"pegacorn",n:"feather",c:100,k:"0-2"},
+{m:"pegacorn",n:"monster_leather_a",c:100,k:"0-2"},
+{m:"pegasus",n:"feather",c:100,k:"0-2"},
+{m:"pegasus",n:"monster_leather_c",c:100,k:"0-2"},
+{m:"phantaspore",n:"red_mushroom_block",c:100,k:"1-3"},
+{m:"phantaspore",n:"red_mushroom",c:100,k:"1-3"},
+{m:"phantaspore",n:"brown_mushroom_block",c:100,k:"1-3"},
+{m:"phantaspore",n:"brown_mushroom",c:100,k:"1-3"},
+{m:"phantaspore",n:"crimson_hyphae",c:100,k:"1-3"},
+{m:"phantaspore",n:"crimson_fungus",c:100,k:"1-3"},
+{m:"phantaspore",n:"warped_hyphae",c:100,k:"1-3"},
+{m:"phantaspore",n:"warped_fungus",c:100,k:"1-3"},
+{m:"salamander",n:"fire_elemental_shard",c:25.0,k:"1.0"},
+{m:"salamander",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"shinji_tanimura",n:"high_potion",c:100,k:"0-2"},
+{m:"shizu",n:"anti_magic_mask_schematic",c:100,k:"1.0"},
+{m:"sissie",n:"sissie_tooth",c:100,k:"0-1"},
+{m:"sissie",n:"sissie_fin",c:100,k:"0-2"},
+{m:"sissie",n:"raw_sissie_meat",c:100,k:"2-8"},
+{m:"sissie",n:"bone",c:100,k:"0-3"},
+{m:"skeleton",n:"bone",c:100,k:"1-3"},
+{m:"slime",n:"slime_chunk",c:100,k:"1.0"},
+{m:"slime",n:"chilled_slime",c:100,k:"1.0"},
+{m:"slime",n:"slime_core",c:100,k:"1.0"},
+{m:"spear_toro",n:"spear_toro_fin",c:100,k:"0-2"},
+{m:"spear_toro",n:"raw_spear_toro_meat",c:100,k:"2-8"},
+{m:"spear_toro",n:"bone",c:100,k:"0-2"},
+{m:"supermassive_slime",n:"slime_chunk",c:100,k:"30-50"},
+{m:"supermassive_slime",n:"chilled_slime",c:100,k:"30-50"},
+{m:"supermassive_slime",n:"slime_core",c:100,k:"1.0"},
+{m:"sylphide",n:"elemental_essence",c:100,k:"1.0"},
+{m:"sylphide",n:"wind_elemental_shard",c:100,k:"1-3"},
+{m:"tempest_serpent",n:"serpent_scale",c:100,k:"1-6"},
+{m:"tempest_serpent",n:"raw_serpent_meat",c:100,k:"1-4"},
+{m:"undine",n:"elemental_essence",c:100,k:"1.0"},
+{m:"undine",n:"water_elemental_shard",c:100,k:"1-3"},
+{m:"unicorn",n:"unicorn_horn",c:100,k:"1.0"},
+{m:"unicorn",n:"monster_leather_b",c:100,k:"0-2"},
+{m:"war_gnome",n:"elemental_essence",c:100,k:"1.0"},
+{m:"war_gnome",n:"earth_elemental_shard",c:100,k:"1-3"},
+{m:"winged_cat",n:"space_elemental_shard",c:25.0,k:"1.0"},
+{m:"winged_cat",n:"elemental_essence",c:10.0,k:"1.0"},
+{m:"zombie",n:"rotten_flesh",c:100,k:"1-3"},
+];
+const inp = document.getElementById("q"), list = document.getElementById("list"), count = document.getElementById("count");
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function render() {
+  const q = inp.value.toLowerCase();
+  const r = DATA.filter(x => !q || x.m.includes(q) || x.n.includes(q)).slice(0, 300);
+  count.textContent = "เจอ " + r.length + " รายการ";
+  list.innerHTML = r.map(x => "<tr><td>" + esc(x.m) + "</td><td>" + esc(x.n) + "</td><td>" + esc(x.c) + "%</td><td>" + esc(x.k) + "</td></tr>").join("");
+}
+inp.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
