@@ -29,7 +29,7 @@
 </head>
 <body>
 <header><h1><img class="icon-lg" src="assets/book_logo.png" alt="">ฐานข้อมูลสกิลทั้งหมด</h1><p>ชื่อ + คำอธิบายในเกม + ค่าเรียน • พิมพ์ค้นหาได้ • ดูวิธีปลดตามประเภทที่ <a href="abilities.html">Abilities</a></p></header>
-<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a class="active" href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="gear.html">??????</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="troubleshooting.html">???????</a><a href="quests.html">เควส</a><a href="faq.html">FAQ</a><a href="cooking.html">?????</a><a href="items.html">ไอเทม / อีโว</a></nav>
+<nav><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a class="active" href="skills.html">สกิลทั้งหมด</a><a href="abilities.html">Abilities</a><a href="races.html">เผ่า</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="blocks.html">บล็อก</a><a href="gear.html">??????</a><a href="bosses.html">บอส / มิติ</a><a href="mechanics.html">Mechanics</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">????</a><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="troubleshooting.html">???????</a><a href="quests.html">เควส</a><a href="faq.html">FAQ</a><a href="cooking.html">?????</a><a href="items.html">ไอเทม / อีโว</a></nav>
 <main>
 <div class="searchbar"><input id="q" type="text" placeholder="ค้นหาสกิล... เช่น พรีเดเตอร์, ฟื้นฟู, Predator, Regen">
 <label style="align-self:center;color:var(--muted)"><input type="checkbox" id="en"> โชว์อังกฤษ</label></div>
@@ -37,7 +37,7 @@
 <div id="count">กำลังโหลด...</div>
 <div id="list" class="grid" style="grid-template-columns:1fr"></div>
 </main>
-<footer><nav class="footer-nav" aria-label="????????"><a href="getting-started.html">?????????</a> � <a href="skills.html">????</a> � <a href="races.html">????</a> � <a href="quests.html">????</a> � <a href="troubleshooting.html">???????</a> � <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a> • ข้อมูลจาก lang ม็อด + config (414 สกิล)</footer>
+<footer><nav class="footer-nav" aria-label="????????"><a href="getting-started.html">?????????</a> � <a href="skills.html">????</a> � <a href="races.html">????</a> � <a href="quests.html">????</a> � <a href="troubleshooting.html">???????</a> � <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a> • ข้อมูลจาก lang ม็อด + config (414 สกิล)</footer>
 <script>
 let DATA = [];
 let typeFilter = "all";
@@ -91,11 +91,11 @@ function render() {
   const showEn = document.getElementById("en").checked;
   const list = DATA.filter(e =>
     (typeFilter === "all" || e.type === typeFilter) &&
-    (!q || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q) || (e.desc_th||"").includes(qraw) || (e.wiki_th||"").includes(qraw))
+    (!q || (e.name_th||"").includes(qraw) || e.name.toLowerCase().includes(q) || e.id.includes(q) || (e.desc||"").toLowerCase().includes(q) || (e.desc_th||"").includes(qraw) || (e.wiki_th||"").includes(qraw))
   );
   document.getElementById("count").textContent = "เจอ " + list.length + " สกิล (รายละเอียดเต็มจากวิกิในเกม " + DATA.filter(e => e.wiki_th).length + " สกิล)";
   document.getElementById("list").innerHTML = list.slice(0, 300).map(e =>
-    '<div class="card skill"><h3>' + (e.icon ? '<img class="icon" src="' + e.icon + '" alt="">' : '') + esc(e.name) + '</h3>' +
+    '<div class="card skill"><h3>' + (e.icon ? '<img class="icon" src="' + e.icon + '" alt="">' : '') + esc(e.name_th || e.name) + (e.name_th && e.name_th !== e.name ? ' <span style="color:var(--muted);font-weight:400;font-size:.85em">' + esc(e.name) + '</span>' : '') + '</h3>' +
     '<div class="meta"><span class="tag">' + esc(e.type) + '</span><span class="tag">' + esc(e.mod) + '</span>' +
     '<code>' + esc(e.id) + '</code>' + (e.cost ? ' • ' + esc(e.cost) : '') + '</div>' +
     (e.wiki_th
