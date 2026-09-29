@@ -15,14 +15,14 @@
 <tr><td><img class="icon" src="assets/mithril_ingot.png" alt="">Mithril</td><td>Magisteel 20 + <img class="icon" src="assets/silver_ingot.png" alt="">Silver 4</td><td>Mithril Kiln (จุ 288)</td></tr>
 <tr><td><img class="icon" src="assets/orichalcum_ingot.png" alt="">Orichalcum</td><td>Magisteel 20 + Gold 4</td><td>Orichalcum Kiln (จุ 576)</td></tr>
 <tr><td><img class="icon" src="assets/silver_ingot.png" alt="">Silver</td><td>Silver 9 ตรงๆ</td><td>Kiln ธรรมดา</td></tr></table>
-<p>ค่าไฟ <code>fireCoreCost=100</code> ชาร์จ <code>2400 tick</code> (<code>block_config.toml:38-44</code>) • เกียร์เก่าหลอมคืนได้บางส่วน (<code>kiln_melting</code> เช่น ขวาน High ได้ Magisteel 2 + Iron คืน <code>melting/high_magisteel_axe.json:75 tick</code>)</p>
+<p>ค่าไฟ <code>fireCoreCost=100</code> ชาร์จ <code>2400 tick</code><sup class="srcref">[1]</sup> • เกียร์เก่าหลอมคืนได้บางส่วน (<code>kiln_melting</code> เช่น ขวาน High ได้ Magisteel 2 + Iron คืน<sup class="srcref">[2]</sup></p>
 <h2>ตีเกียร์ที่ Smithing Bench (+ schematic ตรง tier)</h2>
 <table><tr><th>ชิ้น</th><th>สูตร (ทุกระดับเหมือนกัน เปลี่ยนแค่ ingot)</th></tr>
-<tr><td>ดาบ</td><td>ingot โลหะ 2 + ทอง 1 + ไม้ 1 (<code>smithing/low_magisteel_sword.json</code>)</td></tr>
-<tr><td>อกเกราะ</td><td>ingot 8 + ทอง 4 + หนังมอน B 2 (<code>smithing/mithril_chestplate.json</code>)</td></tr></table>
-<p>มีดาบ/คาตานะ/โอ LONG/SHORT/โอดาชิ/เคียว/ขวาน/พลั่ว/จอบ/เกราะครบเซ็ตถึง Mithril • schematic ได้จากเควส <code>2C04AF:770,1897,1936</code> + <code>2BBC87:958</code> • เกียร์วานิลลา (iron/diamond/netherite) ให้ EP โบนัสต่างกัน (<code>kubejs/data/tensura/gear_existence/*.json</code> 60 ไฟล์)</p>
+<tr><td>ดาบ</td><td>ingot โลหะ 2 + ทอง 1 + ไม้ 1<sup class="srcref">[3]</sup></td></tr>
+<tr><td>อกเกราะ</td><td>ingot 8 + ทอง 4 + หนังมอน B 2<sup class="srcref">[4]</sup></td></tr></table>
+<p>มีดาบ/คาตานะ/โอ LONG/SHORT/โอดาชิ/เคียว/ขวาน/พลั่ว/จอบ/เกราะครบเซ็ตถึง Mithril • schematic ได้จากเควส <code>2C04AF:770,1897,1936</code> + <code>2BBC87:958</code> • เกียร์วานิลลา (iron/diamond/netherite) ให้ EP โบนัสต่างกัน<sup class="srcref">[5]</sup> 60 ไฟล์)</p>
 <div class="card"><h2>ลำดับเกียร์แนะนำ</h2><p>Iron → Low (ผสมถูกสุด) → High → Pure (ฟาร์ม Colossus) → Mithril (แกร่งกว่า Netherite) → Orichalcum/Adamantite/Hihiirokane ท้ายเกม — ผูกกับเควสเนื้อเรื่อง <code>2C04AF</code></p></div>
-</main>
+<details class="sources"><summary>ที่มาข้อมูล (ไฟล์เกม 5 จุด)</summary><ol><li><code>block_config.toml:38-44</code></li><li><code>melting/high_magisteel_axe.json:75 tick</code></li><li><code>smithing/low_magisteel_sword.json</code></li><li><code>smithing/mithril_chestplate.json</code></li><li><code>kubejs/data/tensura/gear_existence/*.json</code></li></ol></details></main>
 <footer><nav class="footer-nav" aria-label="ลิงก์ย่อ"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิล</a> • <a href="races.html">เผ่า</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
 </body>
 </html>

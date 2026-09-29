@@ -8,19 +8,19 @@
 <nav aria-label="เมนูหลัก"><div class="nav-main"><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="races.html">เผ่า 33</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="quests.html">เควส</a></div><details class="nav-more has-active"><summary>เพิ่มเติม</summary><div class="nav-panel"><div><h4>ข้อมูลเกม</h4><a class="active" href="abilities.html">Abilities</a><a href="blocks.html">บล็อก</a><a href="items.html">ไอเทม / อีโว</a><a href="drops.html">ม็อบดรอป</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ / ประตู</a><a href="mechanics.html">Mechanics</a><a href="systems.html">ระบบสำคัญ</a></div><div><h4>ของใช้ / ของกิน</h4><a href="gear.html">เกียร์ / โลหะ</a><a href="weapons.html">อาวุธ / เกราะ</a><a href="cooking.html">อาหาร</a></div><div><h4>ช่วยเหลือ</h4><a href="commands.html">คำสั่ง</a><a href="config.html">Config</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="changelog.html">อัปเดตเว็บ</a></div></div></details></nav>
 <main>
 <table><tr><th>ประเภท</th><th>วิธีปลด</th><th>ตัวอย่าง</th></tr>
-<tr><td>Common</td><td>EP ถึงแล้วกด B (<code>ability/common_config.toml</code>)</td><td>Coercion 5k, Strength 3k, Telepathy 2k, Gravity Flight 10k, Field 20k</td></tr>
-<tr><td>Extra</td><td>EP สูง / หนังสือสกิล (<code>extra_config.toml: Haki 100k, UltraspeedRegen 300k, Law 800k</code>)</td><td>Haki, DemonLord Haki 200k</td></tr>
+<tr><td>Common</td><td>EP ถึงแล้วกด B<sup class="srcref">[1]</sup></td><td>Coercion 5k, Strength 3k, Telepathy 2k, Gravity Flight 10k, Field 20k</td></tr>
+<tr><td>Extra</td><td>EP สูง / หนังสือสกิล<sup class="srcref">[2]</sup></td><td>Haki, DemonLord Haki 200k</td></tr>
 <tr><td>Intrinsic</td><td>ติดเผ่า กด B เรียนเลย</td><td>Darkness Transform (30 MP/20t)</td></tr>
-<tr><td>Unique</td><td>สุ่มเกิดใหม่ / หนังสือ / จ่าย MP (<code>unique_config.toml: Chef 10k, Predator 50k, Gluttony 100k</code>)</td><td>Predator, Gluttony, Pride, Great Sage 75k</td></tr>
-<tr><td>Resistance easy/medium/hard</td><td>โดนดาเมจธาตุนั้นสะสมแต้มแล้วเรียน (<code>skill_config.toml: easy 100</code>)</td><td>Fire/Water/Poison Resist</td></tr>
-<tr><td>Magic (Aspectual/Spiritual/Summon)</td><td>จ่าย Magicule (<code>tensura_skill_books-common.toml</code>)</td><td>Spatial Storage 3000 (54 ช่อง x100)</td></tr>
-<tr><td>Ultimate</td><td>ผสมสกิลมาสเตอรี่ + EP (<code>fox_ultimate/*.toml</code>)</td><td>Beelzebub = Gluttony+Merciless มาสเตอร์ + Hero/Demon Egg, Shub 2M EP</td></tr></table>
+<tr><td>Unique</td><td>สุ่มเกิดใหม่ / หนังสือ / จ่าย MP<sup class="srcref">[3]</sup></td><td>Predator, Gluttony, Pride, Great Sage 75k</td></tr>
+<tr><td>Resistance easy/medium/hard</td><td>โดนดาเมจธาตุนั้นสะสมแต้มแล้วเรียน<sup class="srcref">[4]</sup></td><td>Fire/Water/Poison Resist</td></tr>
+<tr><td>Magic (Aspectual/Spiritual/Summon)</td><td>จ่าย Magicule<sup class="srcref">[5]</sup></td><td>Spatial Storage 3000 (54 ช่อง x100)</td></tr>
+<tr><td>Ultimate</td><td>ผสมสกิลมาสเตอรี่ + EP<sup class="srcref">[10]</sup></td><td>Beelzebub = Gluttony+Merciless มาสเตอร์ + Hero/Demon Egg, Shub 2M EP</td></tr></table>
 <div class="card"><h2>ดูดสกิลด้วย Predator / Gluttony</h2>
 <p>Predator: 10% ได้ 1 สกิล / ฆ่าได้ 100% Intrinsic+Common+Extra+Resist + 30% EP ครั้งแรก • Gluttony: 30% ได้ 1-3 สกิล + 50% EP + ขโมย Corrosion (<code>fox wiki skill_descriptions.json:88,162</code>) • Degenerate แยกสกิลตอน EP &lt;75%</p>
-<p>Mastery: Intrinsic 100 / Extra 500 / Unique 1000 / Sin 1500 / Ultimate 10000 (<code>ability/skill_config.toml:1-22</code>) • เรียนใช้ 100 แต้ม คูลดาวน์ 10 วิ (<code>ability_config.toml [Learning]</code>)</p></div>
+<p>Mastery: Intrinsic 100 / Extra 500 / Unique 1000 / Sin 1500 / Ultimate 10000<sup class="srcref">[6]</sup> • เรียนใช้ 100 แต้ม คูลดาวน์ 10 วิ<sup class="srcref">[7]</sup></p></div>
 <h2>หนังสือสกิล</h2>
-<p><code>tensura_skill_books:skill_study_book</code> รางวัลเควส <code>2C04AF:1084</code> เปิดได้ Predator ฯลฯ แปลไทยที่ <code>kubejs/assets/tensura_skill_books/lang/th_th.json</code> — ค้นทั้งหมดที่ <a href="skills.html">ฐานข้อมูล 408 สกิล</a> (<code>assets/skills_data.json</code>)</p>
-</main>
+<p><code>tensura_skill_books:skill_study_book</code> รางวัลเควส <code>2C04AF:1084</code> เปิดได้ Predator ฯลฯ แปลไทยที่<sup class="srcref">[8]</sup> — ค้นทั้งหมดที่ <a href="skills.html">ฐานข้อมูล 408 สกิล</a><sup class="srcref">[9]</sup></p>
+<details class="sources"><summary>ที่มาข้อมูล (ไฟล์เกม 10 จุด)</summary><ol><li><code>ability/common_config.toml</code></li><li><code>extra_config.toml: Haki 100k, UltraspeedRegen 300k, Law 800k</code></li><li><code>unique_config.toml: Chef 10k, Predator 50k, Gluttony 100k</code></li><li><code>skill_config.toml: easy 100</code></li><li><code>tensura_skill_books-common.toml</code></li><li><code>ability/skill_config.toml:1-22</code></li><li><code>ability_config.toml [Learning]</code></li><li><code>kubejs/assets/tensura_skill_books/lang/th_th.json</code></li><li><code>assets/skills_data.json</code></li><li><code>fox_ultimate/*.toml</code></li></ol></details></main>
 <footer><nav class="footer-nav" aria-label="ลิงก์ด่วน"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า 33</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
 </body>
 </html>

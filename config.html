@@ -8,17 +8,17 @@
 <nav aria-label="เมนูหลัก"><div class="nav-main"><a href="index.html">หน้าแรก</a><a href="getting-started.html">เริ่มเล่น</a><a href="skills.html">สกิลทั้งหมด</a><a href="races.html">เผ่า 33</a><a href="mobs.html">ม็อบ / เรทเกิด</a><a href="ores.html">แร่ / วัสดุ</a><a href="bosses.html">บอส / มิติ</a><a href="quests.html">เควส</a></div><details class="nav-more has-active"><summary>เพิ่มเติม</summary><div class="nav-panel"><div><h4>ข้อมูลเกม</h4><a href="abilities.html">Abilities</a><a href="blocks.html">บล็อก</a><a href="items.html">ไอเทม / อีโว</a><a href="drops.html">ม็อบดรอป</a><a href="structures.html">โครงสร้าง</a><a href="dimensions.html">มิติ / ประตู</a><a href="mechanics.html">Mechanics</a><a href="systems.html">ระบบสำคัญ</a></div><div><h4>ของใช้ / ของกิน</h4><a href="gear.html">เกียร์ / โลหะ</a><a href="weapons.html">อาวุธ / เกราะ</a><a href="cooking.html">อาหาร</a></div><div><h4>ช่วยเหลือ</h4><a href="commands.html">คำสั่ง</a><a class="active" href="config.html">Config</a><a href="troubleshooting.html">แก้แครช</a><a href="faq.html">FAQ</a><a href="changelog.html">อัปเดตเว็บ</a></div></div></details></nav>
 <main>
 <table><tr><th>ไฟล์</th><th>ค่าที่ควรรู้</th></tr>
-<tr><td><code>tensura/race/*.toml</code></td><td>EP อีโวทุกเผ่า (Slime 100 ore/God 2M, Orc 5k→2M, Goblin 2k→400k+บอส4…)</td></tr>
-<tr><td><code>tensura/ability/*_config.toml</code></td><td>ค่าเรียน Common/Extra/Unique + mastery 100/500/1000/1500/10000 (<code>skill_config:1-22</code>)</td></tr>
-<tr><td><code>tensura/entity/spawn_rate_config.toml:39-82,1-35</code></td><td>เรทวัน/คืน [Day,Night] + แรร์ metal 1/500 super 1/1000 orcLord 1/900 alpha 1/10</td></tr>
-<tr><td><code>tensura/energy_config.toml:23-48</code></td><td>Aura 1-10, ลดทอน 90%, ขโมย 1M</td></tr>
-<tr><td><code>tensura/race/race_config.toml:8,48,52,56</code></td><td>soul 50%, Hero x3, DemonLord x2.5, พิธี 3600 tick</td></tr>
-<tr><td><code>tensura/block_config.toml:38-44</code></td><td>kiln 144/288/576, Charybdis 100k/200k</td></tr>
-<tr><td><code>tensura_tno-spawn.toml + common.toml</code></td><td>blacklist Ancient/Desert, รัศมี 1024, prestige 20 soul/grade</td></tr>
+<tr><td><sup class="srcref">[6]</sup></td><td>EP อีโวทุกเผ่า (Slime 100 ore/God 2M, Orc 5k→2M, Goblin 2k→400k+บอส4…)</td></tr>
+<tr><td><sup class="srcref">[7]</sup></td><td>ค่าเรียน Common/Extra/Unique + mastery 100/500/1000/1500/10000 (<code>skill_config:1-22</code>)</td></tr>
+<tr><td><sup class="srcref">[1]</sup></td><td>เรทวัน/คืน [Day,Night] + แรร์ metal 1/500 super 1/1000 orcLord 1/900 alpha 1/10</td></tr>
+<tr><td><sup class="srcref">[2]</sup></td><td>Aura 1-10, ลดทอน 90%, ขโมย 1M</td></tr>
+<tr><td><sup class="srcref">[3]</sup></td><td>soul 50%, Hero x3, DemonLord x2.5, พิธี 3600 tick</td></tr>
+<tr><td><sup class="srcref">[4]</sup></td><td>kiln 144/288/576, Charybdis 100k/200k</td></tr>
+<tr><td><sup class="srcref">[5]</sup></td><td>blacklist Ancient/Desert, รัศมี 1024, prestige 20 soul/grade</td></tr>
 <tr><td><code>waystones-common / ftbquests/data.snbt</code></td><td>วาร์ป 32t / เควส linear grid 0.5</td></tr>
-<tr><td><code>fox_ultimate/*.toml</code></td><td>เงื่อนไข Ultimate (Beelzebub/Ciel/Uriel/Shub 2M…)</td></tr></table>
+<tr><td><sup class="srcref">[8]</sup></td><td>เงื่อนไข Ultimate (Beelzebub/Ciel/Uriel/Shub 2M…)</td></tr></table>
 <p>หลังแก้ config กด <code>/ftbquests reload</code> หรือรีเกม • สำรอง <code>saves/โลกใหม่</code> ก่อนเสมอ</p>
-</main>
+<details class="sources"><summary>ที่มาข้อมูล (ไฟล์เกม 8 จุด)</summary><ol><li><code>tensura/entity/spawn_rate_config.toml:39-82,1-35</code></li><li><code>tensura/energy_config.toml:23-48</code></li><li><code>tensura/race/race_config.toml:8,48,52,56</code></li><li><code>tensura/block_config.toml:38-44</code></li><li><code>tensura_tno-spawn.toml + common.toml</code></li><li><code>tensura/race/*.toml</code></li><li><code>tensura/ability/*_config.toml</code></li><li><code>fox_ultimate/*.toml</code></li></ol></details></main>
 <footer><nav class="footer-nav" aria-label="ลิงก์ด่วน"><a href="getting-started.html">เริ่มเล่น</a> • <a href="skills.html">สกิลทั้งหมด</a> • <a href="races.html">เผ่า 33</a> • <a href="quests.html">เควส</a> • <a href="troubleshooting.html">แก้แครช</a> • <a href="faq.html">FAQ</a></nav><a href="index.html">กลับหน้าแรก</a></footer>
 </body>
 </html>

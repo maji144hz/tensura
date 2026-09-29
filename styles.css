@@ -76,6 +76,10 @@ button{font:inherit;font-family:var(--head);font-weight:600;color:#06202e;backgr
 button:hover{background:var(--mint)}
 details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 16px;margin:10px 0}
 summary{cursor:pointer;font-weight:600}
+.srcref{color:var(--muted);font-size:.75em;cursor:help}
+details.sources{margin-top:28px}
+details.sources ol{margin:8px 0;padding-left:1.6em;color:var(--muted);font-size:.9rem}
+details.sources code{overflow-wrap:anywhere}
 blockquote{margin:14px 0;padding:8px 16px;border-left:4px solid var(--gold);background:var(--panel);border-radius:0 12px 12px 0;color:var(--muted)}
 
 footer{margin-top:40px;padding:26px 20px;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
